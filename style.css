@@ -1,0 +1,163 @@
+/* C:\Users\97152\basic\Namaste\reactFoodDeliverApp\images\foodie_faster.jpg */
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.logo
+{
+   width: 150px; 
+   padding: 10px 20px;
+
+}
+.nav-items ul{
+    display: flex;
+    padding: 10px 70px;
+    font-size: 20px;
+
+}
+.nav-items ul li{
+    padding: 10px;
+    margin: 10px;
+    list-style-type: none;
+}
+.res-card
+{
+    width:220px;
+    /* height: 265px; */
+    border: 1px solid #ddd;
+    background: linear-gradient(to bottom, #abc7ab, #d0be9b);
+     padding: 5px 10px; 
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease;
+    cursor: pointer;
+    margin: 10px 5px;
+   
+    /* flex-grow: 1; */
+ }
+
+.search
+{
+    padding: 10px;
+
+}
+.image-container {
+    overflow: hidden; /* Ensures the enlarged image doesn't overflow its container */
+}
+.dish-image
+{
+    width:100%;
+    height: 155px;
+}
+.hover-image {
+    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+    width: 100%; /* Set the default width of the image */
+}
+
+
+.image-container:hover .hover-image {
+    transform: scale(1.2); 
+}  
+
+.res-card:hover {
+    border: 1px solid rgba(0, 0, 0, 0.437); /* Border changes to red when .image-container is hovered */
+}
+    
+  
+    
+
+h4
+{
+    margin: 4px 0px; 
+}
+.res-name
+{
+    font-size: large;
+     margin: 4px 0px; 
+}
+.res-cuisine
+{
+    color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+  opacity: 0.8; /* 70% visible */
+ text-shadow:  0 0 5px rgba(255, 255, 255, 0.5); 
+}
+.rate-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rate-container h4
+{
+    font-size: x-small
+}
+.res-card .offer
+{
+    font-size: small;
+}
+.star-rating
+{
+    border: 1px solid green;
+    background-color: rgb(55, 132, 55);
+    color: white;
+    padding: 1px;
+}
+.star::before {
+    content: '\2605'; /* Unicode for ★ */
+    color:white;
+}
+
+
+.offer-container {
+    position: relative; 
+    width: 20px;
+    margin: 6px 0px;
+   
+}
+
+.offer-image {
+   
+    width: 100%;
+    height: auto;
+}
+.letter
+{
+    font-size: 12px;
+}
+
+.offer-text {
+    position: absolute;
+    top: 45%;
+    font-size:xx-small;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+.per-container
+{
+    display: flex;
+    align-items: center;
+   
+}
+.offer-details
+{
+    margin-left: 10px;
+    color: rgb(84, 16, 16);
+    font-size: 12px;
+}
+.restauant-container
+{
+    display: flex;
+    height: auto;
+    padding: 10px;
+    justify-content: start; 
+    border: 1px solid white;
+    width: 100%;
+    flex-wrap:   wrap;
+    margin: 10px 60px;
+}

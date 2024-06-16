@@ -2,9 +2,10 @@
   "name": "reactfooddeliverapp",
   "version": "1.0.0",
   "description": "\"FoodDelievery App\"",
-  "main": "script.js",
+ 
   "scripts": {
-    "test": "hi"
+    "test": "hi", 
+    "start" : "parcel index.html"
   },
   "author": "vinothini",
   "license": "ISC",
