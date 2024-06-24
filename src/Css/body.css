@@ -1,0 +1,30 @@
+.filter-btn
+{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+.filter-btn:hover
+{
+    background-color: rgb(157, 102, 43);
+   
+}
+
+.filter-btn{
+    margin: 20px 0px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .blink {
+    animation: blink 0.5s step-end infinite;
+  }

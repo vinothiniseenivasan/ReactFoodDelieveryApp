@@ -1,10 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-
-// its a card => array of different hotel and rating
 const card = [
   
     {
@@ -52,7 +45,7 @@ const card = [
       "name": "Jalebi Junction",
       "price": 300,
       "cuisine" :"North Indian" ,
-      "rate": 4.8,
+      "rate": 3.7,
       "delivery": "35 min" ,
       
     },{
@@ -80,7 +73,7 @@ const card = [
       "name": "Kerala Kitchen",
       "price": 150,
       "cuisine" :"South Indian" ,
-      "rate": 4.4,
+      "rate": 3.9,
       "delivery": "20 min" ,
       
     },
@@ -90,7 +83,7 @@ const card = [
       "name": "Bengali Bliss",
       "price": 200,
       "cuisine" :"North Indian" ,
-      "rate": 4.6,
+      "rate": 3.5,
       "delivery": "32 min" ,
       
     }, 
@@ -100,7 +93,7 @@ const card = [
       "name": "Dosa Dreams",
       "price": 80,
       "cuisine" :"South Indian" ,
-      "rate": 4.8,
+      "rate": 4.2,
       "delivery": "15 min" ,
       
     },
@@ -110,7 +103,7 @@ const card = [
       "name": "Chicken Elite",
       "price": 320,
       "cuisine" :"North Indian" ,
-      "rate": 4.6,
+      "rate": 3.8,
       "delivery": "43 min" ,
       
     },
@@ -126,122 +119,5 @@ const card = [
     }
 ]
 
-// header => {logo , Links}
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://cdn.dribbble.com/users/1191192/screenshots/4250680/foodie_faster.jpg"
-          alt="Hello image"
-        />
-      </div>
 
-      <div className="nav-items">
-        {/* nav items is list items */}
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-// RestaurantCard => name , img
-// Name of dish
-// Star Rating
-// cuisine
-// delivery
-
-// const styleBackground = {
-//   backgroundColor: "red",
-// };
-
-
-// {
-//   "id": "texas-monthlys-1-bbq-brisket",
-//   "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
-//   "name": "Snow's BBQ",
-//   "dsc": "Texas Monthly's #1 BBQ Brisket",
-//   "price": 199,
-//   "rate": 4,
-//   "country": "Lexington, TX"
-// },
-
-const RestaurantCard = ( {res} ) => {
-
-
-  // const { img, name, dsc, rate, price } = {res};
-   {console.log("props" ,res)}
-  return (  <div className="res-card">
-  
- 
-       <div className="image-container">
-        <img  
-        src= {res.img}
-        className="dish-image hover-image"
-        alt="image"/>
-      
-       </div>
-
-      <h3 className="res-name">{res.name}</h3>
-
-      <h4 className="res-cuisine letter">
-         {res.cuisine}
-      </h4>
-      <div className="rate-container res-cuisine">
-        <h4 className="star-rating star"> {res.rate}</h4>
-        <h4 className="del-time">{res.delivery}</h4>
-        <h4 className="del-time"> ₹{res.price} FOR TWO</h4>
-      </div>
-
-      <div className="per-container res-cuisine ">
-        <div className="offer-container">
-          <img
-            src="https://www.pngitem.com/pimgs/m/2-29820_offer-logo-blank-png-transparent-png.png"
-            alt="Offer Image"
-            className="offer-image "
-          />
-          <div className="offer-text "> %</div>
-        </div>
-
-        <div className="offer-details"> 40% off | USE SPECIALS</div>
-      </div>
-    </div>
-  );
-}
-
-const Body = () => {
-  //  body contains =>
-  // 1.searchBar
-  // 2 . cards => Food image and details
-  return (
-    <div className="Body">
-      <div className="search">Search</div>
-
-      <div className="restauant-container">
-        {
-                   card.map(  (eachRestaurant) =>
-                      (  <RestaurantCard key={eachRestaurant.id} res = {eachRestaurant} />  )
-          )}
-      </div>
-    </div>
-  );
-};
-const AppLayout = () => {
-  return (
-    <div className="app">
-      {/* Header */}
-      {/* Body */}
-      {/* Footer */}
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-root.render(<AppLayout />);
+export default card;

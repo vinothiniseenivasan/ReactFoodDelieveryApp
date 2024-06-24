@@ -2,14 +2,15 @@
   "name": "reactfooddeliverapp",
   "version": "1.0.0",
   "description": "\"FoodDelievery App\"",
- 
   "scripts": {
-    "test": "hi", 
-    "start" : "parcel index.html"
+    "test": "hi",
+    "start": "parcel index.html"
   },
   "author": "vinothini",
   "license": "ISC",
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
     "parcel": "^2.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
