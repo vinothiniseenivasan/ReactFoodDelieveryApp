@@ -116,7 +116,58 @@ const card = [
       "rate": 4.6,
       "delivery": "28 min" ,
       
-    }
+    },
+    {
+      "img" :"https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGluZGlhbiUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D"
+    },
+    {
+      "img" :"https://plus.unsplash.com/premium_photo-1675798917853-11d04d997979?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGluZGlhbiUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D"
+    },
+    {
+      "img" :"https://as2.ftcdn.net/v2/jpg/02/84/46/89/1000_F_284468940_1bg6BwgOfjCnE3W0wkMVMVqddJgtMynE.jpg"
+    },
+    {
+      "img" :"https://t4.ftcdn.net/jpg/02/42/39/25/240_F_242392561_EFnxkFpe0Bwi3v01rcDt2mzEf9KKNCXS.jpg"
+    },
+    {
+      "img" :"https://t3.ftcdn.net/jpg/01/48/87/88/240_F_148878808_t66qNA4duWkrnGYTUIvFzr6MDJzteUnN.jpg"
+    },
+    {
+      "img" :"https://t4.ftcdn.net/jpg/02/17/39/75/240_F_217397519_MqLzfynUsUKGvZj1AB3iPREmr11sYRhk.jpg"
+    },
+    {
+      "img" :"https://t3.ftcdn.net/jpg/03/61/02/44/240_F_361024401_whhOCNdEPi0LlQz1lvbyY0dvZuno3aVp.jpg"
+    },
+    {
+      "img" :"https://t3.ftcdn.net/jpg/01/07/47/68/240_F_107476869_CfXxyiWfGwTUa9WUCnnxgTM8jVIvtucw.jpg"
+    },
+    {
+      "img" :"https://t3.ftcdn.net/jpg/02/29/77/48/240_F_229774819_htTu3RXAtRs0Az9ywzCaI4iHsrwhxaWU.jpg"
+    },
+    {
+      "img" :"https://t3.ftcdn.net/jpg/02/85/94/06/240_F_285940607_8zrLhg1XUtRAONBrqkLjEUl7mbFZen8c.jpg"
+    },
+    {
+      "img" :"https://t4.ftcdn.net/jpg/02/75/39/13/240_F_275391388_3o3eU2YnIMspqi5Rw4kuLtfKDzWkEGy8.jpg"
+    },
+    {
+      "img" :""
+    },
+    {
+      "img" :""
+    },
+    {
+      "img" :""
+    },
+    {
+      "img" :""
+    },
+    {
+      "img" :""
+    },
+    {
+      "img" :""
+    },
 ]
 
 

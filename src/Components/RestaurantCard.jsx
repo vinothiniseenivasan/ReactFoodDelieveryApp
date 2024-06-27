@@ -1,39 +1,23 @@
 
 
-
-
-
-
-
 import React from "react";
 import { IMG_CDN_URL } from "../Utils/constant";
  
 
 
 
-const RestaurantCard = ({ res  ,img}) => {
+const RestaurantCard = ({ res}) => {
     const { cloudinaryImageId, name, cuisines, avgRating ,costForTwo} = res;
-    // costForTwo,deliveryTime
-
-     console.log("res api inside Restaurantcard" ,res)
-     console.log("Restaurantcard image" ,img)
-  
-     if(img !== undefined)
-        {
-            let imageUrl ={img}
-        }
-        else
-        {
-            imageUrl = "https://media.istockphoto.com/id/1290444763/photo/assorted-of-indian-dish-with-curry-dish-naan-chicken.jpg?s=612x612&w=0&k=20&c=5q09leP6_QnvdUEfsB6KUXDTTBJtl88bEwrDfRVNA0U=";
-        }
     
 
-
+     let imageCloud =IMG_CDN_URL+res.cloudinaryImageId
+   
     return (
         <div className="res-card">
             <div className="image-container">
                 <img
-                 src={imageUrl}
+                //  src={img.img}
+                src={imageCloud}
                
                     className="dish-image hover-image"
                     alt={name}
@@ -67,7 +51,14 @@ const RestaurantCard = ({ res  ,img}) => {
              <div className="offer-text "> %</div>
            </div>
   
-           <div className="offer-details">{res?.aggregatedDiscountInfoV3?.header === "ITEMS" ? "35%" :res.aggregatedDiscountInfoV3.header } off | USE SPECIALS</div>
+           <div className="offer-details">
+            {/* {res?.aggregatedDiscountInfoV2 ===  null ? "35%" :  res?.aggregatedDiscountInfoV3?.header } off | USE SPECIALS */}
+               
+            {/* {(!res?.aggregatedDiscountInfoV3) ? ("40%"): (res?.aggregatedDiscountInfoV3?.header)} off | USE SPECIALS  */}
+            {(!res?.aggregatedDiscountInfoV3?.header) ? ("40% off | USE SPECIALS") :
+             (`${res.aggregatedDiscountInfoV3.header} off | USE SPECIALS`)}
+
+            </div>
          </div>
 
             

@@ -14,8 +14,7 @@ const AppLayout = () => {
       {/* Body */}
       {/* Footer */}
       <Header />
-      <ApiForImage />
-      {/* <Body /> */}
+      <Body /> 
     </div>
   );
 };

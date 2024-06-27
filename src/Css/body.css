@@ -28,3 +28,22 @@
   .blink {
     animation: blink 0.5s step-end infinite;
   }
+  .search-con
+  {
+    display: flex;
+    height: 100px;
+    margin:0px 100px ;
+
+  }
+  .filter{
+    display: flex;
+  }
+  .search-box
+  {
+    height: 30px;
+    margin-top: 40px;
+  }
+  .search-con button{
+    height: 36px;
+    margin-top: 40px;
+  }
