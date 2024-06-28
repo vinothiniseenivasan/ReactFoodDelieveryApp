@@ -29,7 +29,7 @@ const Body = ({ img }) => {
 
 
      const apiInfo = apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-     console.log(apiInfo[3].info.aggregatedDiscountInfoV2)
+     
     setFiltercards(apiInfo);
     setFilteredRestaurants(apiInfo);
   }
