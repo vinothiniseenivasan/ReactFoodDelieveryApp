@@ -1,0 +1,78 @@
+.menu .res-name
+{
+   font-weight:bolder;
+   font-size: x-large;
+   /* text-align: center;
+    */
+}
+.menu {
+    /* margin-left: 00px;  */
+    margin-left: 400px;
+}
+.menu .del-option
+{
+    margin-top: 20px;
+    /* text-align: center; */
+    margin-right: 130px;
+}
+.rating
+{
+    display: flex;   
+    font-weight: bold;
+}
+.line
+{
+  width:600px;
+  color: gray;
+  opacity: 20%;;
+}
+.out-card
+{
+    /* margin-left: 620px; */
+    line-height: 5px;
+    opacity: 50%;
+    margin-right: 800px;
+} 
+.menu .menu-card .cuisine a
+{
+  color: rgb(228, 51, 51);
+  font-style: inherit;
+ 
+}
+.area
+{
+    margin-right: 176px;
+    font-size: large;
+}
+.del-time
+{
+    font-size: large;
+    margin-top: 8px;
+}
+.menu .menu-card .del-fees
+{
+  
+   margin-top: 10px;
+   opacity: 70%;
+    
+}
+.res-area
+{
+    opacity: 60%;
+    margin-left: 20px;
+}
+.menu-card
+{
+    border: 1px solid gray;
+    width: 600px;
+    margin-top: 20px;
+    /* margin-left: 600px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(252, 255, 255);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3)
+}

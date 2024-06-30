@@ -10,5 +10,9 @@
      >Links
      >Address
      >Contact
-     
-        
+
+
+2 types of Routing:
+
+Client side Routing
+Server side Routing
