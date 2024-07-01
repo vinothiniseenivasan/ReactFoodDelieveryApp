@@ -8,8 +8,7 @@ const RestaurantMenu = () =>
 
         const [resInfo ,setResInfo] = useState({});
         const [card,setCard] = useState({});
-        const [menuCard,setMenuCard] = useState([]);
-        const [title ,setTile] = useState("");
+        const [everyItem ,setEveryItem] = useState([]);
 
         useEffect(()=>{
              console.log("fetchRestaurantDetails")
@@ -18,16 +17,25 @@ const RestaurantMenu = () =>
 
   async function fetchRestaurantDetails()
   {
-    const response = await fetch ("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=792606&catalog_qa=undefined&submitAction=ENTER");
+    const response = await fetch ("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=30034&catalog_qa=undefined&submitAction=ENTER");
 
     const responseJson = await response.json();
     // console.log("fetchRestaurantDetails")
-    // console.log(response ,responseJson?.data?.cards[2]?.card?.card);
+      console.log(response ,responseJson?.data?.cards[2]?.card?.card);
     setResInfo(responseJson?.data?.cards[2]?.card?.card?.info)
     setCard(responseJson?.data?.cards[1]);
-   setMenuCard( responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
-   setTile(responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.title)
-    // console.log("resInfo" ,resInfo)
+  //  setMenuCard( responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+   const everyCard =responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+     
+   if(everyCard !== undefined)
+    {
+       var arr = (everyCard.length> 0 &&  everyCard.slice(2));
+       arr =   everyCard.slice(2);
+       setEveryItem(arr);
+    }
+    console.log("responseJson" ,everyItem)
+    
+  
   }
 
 
@@ -39,8 +47,9 @@ const RestaurantMenu = () =>
             return  (<Shimmer />)    
 
         } 
+        console.log("card" , card)
            const tab = card?.card?.card?.tabs;
-           console.log("menuCards" ,menuCard)
+          console.log("tab" ,tab)
         
            const cuisines = resInfo.cuisines;
      
@@ -52,7 +61,8 @@ const RestaurantMenu = () =>
                 <hr  className="line out-card" />
                 
                  <div className="menu-card">
-                      <p className="rating">{resInfo.avgRating} ({resInfo.totalRatingsString})   {resInfo.costForTwoMessage}</p>
+                      <p className="rating">{resInfo.avgRating} ({resInfo.totalRatingsString}) {"   "}  
+                        {resInfo.costForTwoMessage}</p>
                        
                       <h3 className="cuisine">
                          {/* <a href="">{resInfo.cuisines.join(" ,")} </a> */}
@@ -68,10 +78,16 @@ const RestaurantMenu = () =>
                      </div>
                    
               </div>
-              {/* {console.log("title" ,title)} */}
-
-                <RecommendedInMenu menuItem = {menuCard}  itemTitle = {title}/>
-        
+              
+                 {
+                  everyItem.map((item)=>
+                  {
+                    return(
+                      <RecommendedInMenu menuItem = {item?.card?.card?.itemCards}  itemTitle = {item?.card?.card?.title}/>
+                    )
+                  })
+                } 
+               
                 
                  
               </div>  )
