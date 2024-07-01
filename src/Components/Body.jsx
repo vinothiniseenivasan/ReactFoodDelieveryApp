@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ApiForImage from "./ApiForImage";
 import Shimmer from "./Shimmer";
+import RestaurantMenu from "./RestaurantMenu";
+import { Link } from "react-router-dom";
 
 const Body = ({ img }) => {
   const [filtercards, setFiltercards] = useState([]);
@@ -25,10 +27,8 @@ const Body = ({ img }) => {
    
     const response = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const apiResponse = await response.json();
-     console.log("data api", apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-
-     const apiInfo = apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    //  console.log("data api", apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const apiInfo = apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
      
     setFiltercards(apiInfo);
     setFilteredRestaurants(apiInfo);
@@ -99,10 +99,14 @@ const Body = ({ img }) => {
          
           return (
             <div>
-              <RestaurantCard
-                key={eachRestaurant?.info?.id}
-                res={eachRestaurant.info}
-              />
+              <Link    key={eachRestaurant?.info?.id}
+                   to={"/restaurants/" + eachRestaurant?.info?.id} >
+                       <RestaurantCard 
+                        
+                         res={eachRestaurant.info}
+                        />
+              </Link>
+              
             </div>
           );
         })}

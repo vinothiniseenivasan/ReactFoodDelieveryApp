@@ -48,12 +48,12 @@ const RecommendedInMenu = ({menuItem , itemTitle}) =>
                                                    src={image}
                                                     alt=""
                                                     onError={(e) => {
-                                                        console.log("error")
+                                                        // console.log("error")
                                                         e.target.style.display = 'none';
                                                        handleImageError(index);
                                                        
                                                         // e.target.parentElement.style.display = 'none'
-                                                        {console.log("imgDisplay" , imgDisplay)}
+                                                        // {console.log("imgDisplay" , imgDisplay)}
                                                       }} 
                                              />
                                              

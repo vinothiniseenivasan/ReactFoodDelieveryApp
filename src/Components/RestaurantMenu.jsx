@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import '../Css/Restaurantmenu.css'
 import RecommendedInMenu from "./RecommendedInMenu";
+import { useParams } from "react-router-dom";
+import { RESTAURANTMENU_API } from "../Utils/constant";
 
 const RestaurantMenu = () =>
     {
 
+      const {resId} = useParams();
+     
         const [resInfo ,setResInfo] = useState({});
         const [card,setCard] = useState({});
         const [everyItem ,setEveryItem] = useState([]);
@@ -17,14 +21,16 @@ const RestaurantMenu = () =>
 
   async function fetchRestaurantDetails()
   {
-    const response = await fetch ("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=30034&catalog_qa=undefined&submitAction=ENTER");
-
+    
+     const response = await fetch (RESTAURANTMENU_API + resId);
+    // const response = await fetch ("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=30034&catalog_qa=undefined&submitAction=ENTER");
+   
     const responseJson = await response.json();
-    // console.log("fetchRestaurantDetails")
-      console.log(response ,responseJson?.data?.cards[2]?.card?.card);
+   
+      // console.log(response ,responseJson?.data?.cards[2]?.card?.card);
     setResInfo(responseJson?.data?.cards[2]?.card?.card?.info)
     setCard(responseJson?.data?.cards[1]);
-  //  setMenuCard( responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+ 
    const everyCard =responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
      
    if(everyCard !== undefined)
@@ -33,8 +39,7 @@ const RestaurantMenu = () =>
        arr =   everyCard.slice(2);
        setEveryItem(arr);
     }
-    console.log("responseJson" ,everyItem)
-    
+  
   
   }
 
@@ -88,8 +93,6 @@ const RestaurantMenu = () =>
                   })
                 } 
                
-                
-                 
               </div>  )
             
        
