@@ -52,10 +52,8 @@ const RestaurantCard = ({ res}) => {
            </div>
   
            <div className="offer-details">
-            {/* {res?.aggregatedDiscountInfoV2 ===  null ? "35%" :  res?.aggregatedDiscountInfoV3?.header } off | USE SPECIALS */}
-               
-            {/* {(!res?.aggregatedDiscountInfoV3) ? ("40%"): (res?.aggregatedDiscountInfoV3?.header)} off | USE SPECIALS  */}
-            {(!res?.aggregatedDiscountInfoV3?.header) ? ("40% off | USE SPECIALS") :
+          
+              {(!res?.aggregatedDiscountInfoV3?.header) ? ("40% off | USE SPECIALS") :
              (`${res.aggregatedDiscountInfoV3.header} off | USE SPECIALS`)}
 
             </div>
