@@ -4,49 +4,15 @@ import '../Css/Restaurantmenu.css'
 import RecommendedInMenu from "./RecommendedInMenu";
 import { useParams } from "react-router-dom";
 import { RESTAURANTMENU_API } from "../Utils/constant";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantMenu = () =>
     {
 
       const {resId} = useParams();
-     
-        const [resInfo ,setResInfo] = useState({});
-        const [card,setCard] = useState({});
-        const [everyItem ,setEveryItem] = useState([]);
 
-        useEffect(()=>{
-             console.log("fetchRestaurantDetails")
-             fetchRestaurantDetails();
-        },[])
+      const {resInfo  , card ,everyItem }= useRestaurantMenu(resId);
 
-  async function fetchRestaurantDetails()
-  {
-    
-     const response = await fetch (RESTAURANTMENU_API + resId);
-    // const response = await fetch ("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=30034&catalog_qa=undefined&submitAction=ENTER");
-   
-    const responseJson = await response.json();
-   
-      // console.log(response ,responseJson?.data?.cards[2]?.card?.card);
-    setResInfo(responseJson?.data?.cards[2]?.card?.card?.info)
-    setCard(responseJson?.data?.cards[1]);
- 
-   const everyCard =responseJson?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-     
-   if(everyCard !== undefined)
-    {
-       var arr = (everyCard.length> 0 &&  everyCard.slice(2));
-       arr =   everyCard.slice(2);
-       setEveryItem(arr);
-    }
-  
-  
-  }
-
-
-    // console.log("setCard" ,tab)
-
-  
       if (resInfo === null )
         {
             return  (<Shimmer />)    
