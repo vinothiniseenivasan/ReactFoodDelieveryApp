@@ -1,24 +1,32 @@
 import User from "./User";
 import "../Css/about.css";
 import UserClass from "./UserClass";
-import { Component } from "react";
-class About extends Component {
-  constructor() {
-    super();
-    // console.log("parent constructor")
-  }
-  componentDidMount() {
-    // console.log( "parent componentDidMount")
-  }
-  render() {
-    // console.log("parent render")
-    return (
-      <div>
-        <h1>About page</h1>
-        <UserClass name="first class " location="india" />
-      </div>
-    );
-  }
+import { Component, useEffect } from "react";
+
+const About =() =>{
+
+  useEffect(() =>{
+   const timer = setInterval(()=>{
+      console.log("setInterval Called")
+    } ,1000)
+
+     return(()=>{
+    clearInterval(timer)
+  })
+       
+  } , []);
+
+ 
+  return (
+    <div>
+      <h1>About page</h1>
+      <UserClass name="first class " location="india" />
+    </div>
+  );
+
 }
+ 
+ 
+
 
 export default About;
