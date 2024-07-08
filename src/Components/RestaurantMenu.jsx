@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+
 import Shimmer from "./Shimmer";
 import '../Css/Restaurantmenu.css'
 import RecommendedInMenu from "./RecommendedInMenu";
 import { useParams } from "react-router-dom";
-import { RESTAURANTMENU_API } from "../Utils/constant";
+
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantMenu = () =>
@@ -29,7 +29,7 @@ const RestaurantMenu = () =>
 
                    <div className="res-name"> {resInfo.name}</div>
                   { (tab !== undefined) ? <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> : " "}
-                {/* <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> */}
+              
                 <hr  className="line out-card" />
                 
                  <div className="menu-card">

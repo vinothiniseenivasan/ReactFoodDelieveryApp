@@ -3,39 +3,24 @@ import RestaurantCard from "./RestaurantCard";
 import "../Css/body.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import ApiForImage from "./ApiForImage";
+// import ApiForImage from "./ApiForImage";
 import Shimmer from "./Shimmer";
-import RestaurantMenu from "./RestaurantMenu";
+// import RestaurantMenu from "./RestaurantMenu";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
+import useBodyFetch from "../Utils/useBodyFetch";
+
 
 const Body = ({ img }) => {
-  const [filtercards, setFiltercards] = useState([]);
-  const [filteredRestaurants ,setFilteredRestaurants ] =useState([]);
+  
   const [input ,setInput] = useState("");
-  // console.log("image", img);
-  //  {console.log("img[index]" ,img[0].strMealThumb)}
+  
   const [bool ,setBool] = useState(false);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  const {filtercards, filteredRestaurants,setFiltercards,setFilteredRestaurants} = useBodyFetch();
 
  
-
-  async function fetchData() {
    
-    const response = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    const apiResponse = await response.json();
-    //  console.log("data api", apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    const apiInfo = apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-     
-    setFiltercards(apiInfo);
-    setFilteredRestaurants(apiInfo);
-  }
-
-  
-
   // function to filter res rate >= 4.0
   function filterRates(filtercards) {
     const newCard = filtercards.filter((eachCard) => {
@@ -58,6 +43,15 @@ const Body = ({ img }) => {
          setFilteredRestaurants(filterResName);
   }
 
+//  check online network is available or not
+  const onLineStatus = useOnlineStatus();
+  // console.log("onLineStatus" ,onLineStatus)
+  if(onLineStatus === false)
+  {
+    return(
+      <h1>Looks like you are in offline ... check your Network</h1>
+    )
+  }
 
 
   // (bool === true) ? (setFiltercards(filterResName) ) : (filtercards)
