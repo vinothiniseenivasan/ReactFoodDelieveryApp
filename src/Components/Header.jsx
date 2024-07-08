@@ -2,13 +2,16 @@ import { LOGO_URL } from "../Utils/constant";
 import "../Css/Header.css"
 import {  useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 
 export const Header = () => {
  
 console.log("Header First")
 
-   const [btn ,setBtn] = useState("Login")
+   const [btn ,setBtn] = useState("Login");
+    
+   const onlineStatus = useOnlineStatus();
 
   
  
@@ -27,6 +30,9 @@ console.log("Header First")
         <div className="nav-items">
           {/* nav items is list items */}
           <ul>
+            <li>
+              Online Status : {onlineStatus === true ?"✅" : "🔴"}
+            </li>
             <li>
               <Link to="/"> Home</Link>
              </li>
