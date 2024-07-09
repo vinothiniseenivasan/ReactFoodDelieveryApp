@@ -9,6 +9,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import useBodyFetch from "../Utils/useBodyFetch";
+import Button from '@mui/material/Button';
 
 
 const Body = ({ img }) => {
@@ -79,6 +80,14 @@ const Body = ({ img }) => {
                >
                  Top Rated Restaurant
                </button>
+
+               {/* <Button
+                onMouseOver={() => {
+                  filterRates(filtercards);
+                }}
+                 variant="contained" color="secondary" size="large"  >
+                  Top Rated Restaurant
+              </Button> */}
       </div>
 
      
