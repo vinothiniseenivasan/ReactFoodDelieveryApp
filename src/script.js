@@ -4,7 +4,7 @@ import Header from "./Components/Header";
 import Body from "./Components/Body";
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
 
@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const RestaurantCard = ( {res} ) => {
 
 
-  // const { img, name, dsc, rate, price } = {res};
    {console.log("props" ,res)}
   return (  <div className="res-card">
   
@@ -57,13 +56,11 @@ const RestaurantCard = ( {res} ) => {
 const AppLayout = () => {
   return (
     <div className="app">
-      {/* Header */}
-      {/* Body */}
-      {/* Footer */}
+      
       <Header />
       <Body />
     </div>
   );
 };
 
-root.render(<AppLayout />);
+// root.render(<AppLayout />);

@@ -1,10 +1,9 @@
 import { LOGO_URL } from "../Utils/constant";
-import "../Css/Header.css"
+// import "../Css/Header.css"
 import {  useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import Button from '@mui/material/Button';
-
 
 
 export const Header = () => {
@@ -20,7 +19,7 @@ console.log("Header First")
   let btnName = "Login"
     return (
      
-      <div className="header">
+      <div className="flex">
         <div className="logo-container">
           <img
             className="logo"

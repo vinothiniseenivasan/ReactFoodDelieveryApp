@@ -12,6 +12,7 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 // import Grocery from "./Components/Grocery";
 import { lazy } from "react";
 import Shimmer from "./Components/Shimmer";
+// import "../style.css"
 
 
 
