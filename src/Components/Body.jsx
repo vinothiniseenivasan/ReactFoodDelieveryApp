@@ -1,6 +1,6 @@
-import card from "./card";
+
 import RestaurantCard from "./RestaurantCard";
-import "../Css/body.css";
+// import "../Css/body.css";
 import { useState } from "react";
 import { useEffect } from "react";
 // import ApiForImage from "./ApiForImage";
@@ -9,7 +9,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import useBodyFetch from "../Utils/useBodyFetch";
-import Button from '@mui/material/Button';
 
 
 const Body = ({ img }) => {
@@ -60,20 +59,20 @@ const Body = ({ img }) => {
     <Shimmer />
   ) : (
     <div className="Body">
-      <div className="filter">
+      <div className="flex">
         {/* search button */}
-               <div className="search-con">
-                 <input type="text" className="search-box" value={input}
+               <div className="mr-10 ">
+                 <input type="text" className="rounded-md h-[40px] w-[200px] p-4 m-6 border border-solid border-gray-600  bg-gray-50 " value={input}
                          onChange={(e) => 
                           {
                             setInput(e.target.value)
                           }}
                   />
-                 <button onClick={   ()=>{ filterInput(input)}  }>search</button>
+                 <button className="mr-11 font-semibold text-blue-700  border border-solid border-gray-600 px-4 rounded-md bg-purple-300 text-black cursor-pointer" onClick={   ()=>{ filterInput(input)} }>search</button>
                </div>
         {/* Top rated */}
                <button
-                 className="filter-btn"
+                 className="cursor-pointer rounded-lg h-[40px] w-[280px] border border-solid border-black shadow mt-6 text-white bg-green-600 hover:bg-red-600"
                  onMouseOver={() => {
                    filterRates(filtercards);
                  }}
@@ -81,19 +80,13 @@ const Body = ({ img }) => {
                  Top Rated Restaurant
                </button>
 
-               {/* <Button
-                onMouseOver={() => {
-                  filterRates(filtercards);
-                }}
-                 variant="contained" color="secondary" size="large"  >
-                  Top Rated Restaurant
-              </Button> */}
+             
       </div>
 
      
       {/* it has box of food image ,des ,reating , delivery time  */}
      
-      <div className="restauant-container">
+      <div className="flex m-4 px-2   justify-start flex-wrap border border-solid border-x-white shadow-lg w-auto">
 
 
         {/* {console.log("filtercards" , filtercards)} */}

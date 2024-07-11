@@ -3,7 +3,7 @@ import { LOGO_URL } from "../Utils/constant";
 import {  useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
-import Button from '@mui/material/Button';
+
 
 
 export const Header = () => {
@@ -19,36 +19,36 @@ console.log("Header First")
   let btnName = "Login"
     return (
      
-      <div className="flex">
-        <div className="logo-container">
+      <div className="flex justify-between  shadow-lg sm:bg-slate-100">
+        <div className="logo-container ml-11 mt-2">
           <img
-            className="logo"
+            className="h-[120px] w-[150px] p-4  ml-1"
             src={LOGO_URL}
             alt="Hello image"
           />
         </div>
   
-        <div className="nav-items">
+        <div className="items-center">
           {/* nav items is list items */}
-          <ul>
-            <li>
+          <ul className="flex  p-4 m-4">
+            <li className="m-4">
               Online Status : {onlineStatus === true ?"✅" : "🔴"}
             </li>
-            <li>
+            <li className="m-4">
               <Link to="/"> Home</Link>
              </li>
-            <li> 
+            <li className="m-4"> 
               <Link to="/about">About Us</Link>
             </li>
-            <li>
+            <li className="m-4">
               <Link to="/contact">   Contact Us  </Link>
              
             </li>
-            <li>
+            <li className="m-4">
               <Link to ="/grocery"> Grocery </Link>
             </li>
-            <li>Cart</li>
-            <button className="login"
+            <li className="m-4">Cart</li>
+            <button className="m-4"
                     onClick={()=>
                       {
                        (btn === "Login") ? ( setBtn("Logout") ) : ( setBtn("Login") )

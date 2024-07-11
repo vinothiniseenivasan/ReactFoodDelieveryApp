@@ -2,7 +2,6 @@ import React, { Children, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
-import ApiForImage from "./Components/ApiForImage";
 import {  RouterProvider, createBrowserRouter  ,Outlet} from "react-router-dom";
 
 import Contact from "./Components/Contact";
@@ -11,8 +10,8 @@ import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
 // import Grocery from "./Components/Grocery";
 import { lazy } from "react";
-import Shimmer from "./Components/Shimmer";
-// import "../style.css"
+// import Shimmer from "./Components/Shimmer";
+import ".././style.css"
 
 
 
@@ -30,7 +29,7 @@ const AppLayout = () => {
 
 // root.render(<AppLayout />);
 
-
+                                                
 const Grocery = lazy(() => import("./Components/Grocery"))
 
 const appRouter = createBrowserRouter([
@@ -72,7 +71,6 @@ const appRouter = createBrowserRouter([
 
 
 root.render(<RouterProvider   router = {appRouter} />)
-
 
 
 
