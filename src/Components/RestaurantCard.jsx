@@ -8,7 +8,7 @@ import { IMG_CDN_URL } from "../Utils/constant";
 
 const RestaurantCard = ({ res}) => {
     const {  name, cuisines, avgRating ,costForTwo} = res;
-    console.log("cuisines" ,cuisines)
+    // console.log("cuisines" ,cuisines)
     
     if(cuisines.length > 5)
     {

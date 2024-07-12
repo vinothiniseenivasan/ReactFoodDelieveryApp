@@ -1,7 +1,7 @@
 
 import RestaurantCard from "./RestaurantCard";
 // import "../Css/body.css";
-import { useState } from "react";
+import { Children, useState } from "react";
 import { useEffect } from "react";
 // import ApiForImage from "./ApiForImage";
 import Shimmer from "./Shimmer";
@@ -18,6 +18,8 @@ const Body = ({ img }) => {
   const [bool ,setBool] = useState(false);
 
   const {filtercards, filteredRestaurants,setFiltercards,setFilteredRestaurants} = useBodyFetch();
+
+  const [deliveryTime ,setDeliveryTime] =useState(2000);
 
  
    
@@ -54,34 +56,133 @@ const Body = ({ img }) => {
   }
 
 
+
+  // filter Restaurant by Delivery Time
+  function fastDelivery(filtercards)
+  {
+   var filterTime = [...filtercards];
+
+   const filterResByDeltime =  filterTime.sort((a,b) => (a.info.sla.deliveryTime - b.info.sla.deliveryTime) )
+     
+    //  console.log("filterResByDeltime" ,filterResByDeltime);
+     setFilteredRestaurants(filterResByDeltime)
+
+  console.log("filteredRestaurants" , filteredRestaurants)
+
+
+  }
+
+
+  // fliter res by price  than 300 - 400
+  function filterByRs(filtercards)
+  {
+    var filterByCost = [...filtercards];
+          const newCardBycost = filtercards.filter((eachRestaurant) =>
+            {
+               const price = extractPrice(eachRestaurant.info.costForTwo);
+              //  console.log("price" ,price)
+              return price >= 300 && price <= 400;
+
+
+            }  )
+            // console.log("newCardBycost", newCardBycost)
+            setFilteredRestaurants(newCardBycost)
+
+  }
+  // fliter res by price less   300 - 400
+  function filterBylessthan(filtercards)
+  {
+    var filterByCost = [...filtercards];
+          const newCardBycost = filtercards.filter((eachRestaurant) =>
+            {
+               const price = extractPrice(eachRestaurant.info.costForTwo);
+              //  console.log("price" ,price)
+              return price <= 300;
+
+
+            }  )
+            // console.log("newCardBycost", newCardBycost)
+            setFilteredRestaurants(newCardBycost)
+
+  }
+
+  function extractPrice(str) {
+    // Use a regular expression to find digits in the string
+    const match = str.match(/\d+/);
+    return match ? parseInt(match[0], 10) : null;
+  }
+
+
+  
+
   // (bool === true) ? (setFiltercards(filterResName) ) : (filtercards)
   return filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="Body">
-      <div className="flex">
-        {/* search button */}
-               <div className="mr-10 ">
-                 <input type="text" className="rounded-md h-[40px] w-[200px] p-4 m-6 border border-solid border-gray-600  bg-gray-50 " value={input}
+    <div className="">
+       <div className="ml-[1.8rem] font-black lett font-sarif  mt-[20px]">
+       Restaurants with online food delivery in Bangalore
+      </div>
+
+
+
+       <div className="flex ml-[1.8rem] mt-6 text-center justify-start">
+
+
+       <div className="mr-10">
+                 <input type="text" className="rounded-md h-[40px] w-[200px] p-1 mr-5 border border-solid border-gray-600  bg-gray-50 " value={input}
                          onChange={(e) => 
                           {
                             setInput(e.target.value)
                           }}
                   />
-                 <button className="mr-11 font-semibold text-blue-700  border border-solid border-gray-600 px-4 rounded-md bg-purple-300 text-black cursor-pointer" onClick={   ()=>{ filterInput(input)} }>search</button>
-               </div>
-        {/* Top rated */}
-               <button
-                 className="cursor-pointer rounded-lg h-[40px] w-[280px] border border-solid border-black shadow mt-6 text-white bg-green-600 hover:bg-red-600"
-                 onMouseOver={() => {
-                   filterRates(filtercards);
-                 }}
-               >
-                 Top Rated Restaurant
-               </button>
+                 <button className=" h-[25px] w-[75px] font-semibold  border border-solid border-gray-600  rounded-xl text-white cursor-pointer  bg-sky-500 hover:bg-sky-700 " 
+                      onClick={   ()=>{ filterInput(input)} }>
+                            search
+                  </button>
+        </div>
 
-             
-      </div>
+
+
+         <div  className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer "
+          onClick ={
+            () =>
+            {
+              fastDelivery(filtercards);
+            }
+          } >
+            Fast Delivery
+         </div>
+         <div className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer"
+          onClick ={
+            () =>
+            {
+              filterRates(filtercards);
+            }
+          }>
+           Ratings 4.0+
+         </div>
+         <div className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer"
+          onClick ={
+            () =>
+            {
+             filterByRs(filtercards);
+            }
+          }>
+          Rs.300-Rs-400
+         </div>
+         <div className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer"
+         onClick ={
+          () =>
+          {
+           filterBylessthan(filtercards);
+          }
+        }>
+          Less than Rs.300
+         </div>
+
+       </div>
+       
 
      
       {/* it has box of food image ,des ,reating , delivery time  */}
@@ -92,9 +193,11 @@ const Body = ({ img }) => {
         {/* {console.log("filtercards" , filtercards)} */}
         {filteredRestaurants.map((eachRestaurant, index) => {
           // {console.log("eachRestaurant" ,eachRestaurant)}
-         
+        //  console.log("eachRestaurant" ,eachRestaurant)
           return (
             <div>
+
+               
               <Link    key={eachRestaurant?.info?.id}
                    to={"/restaurants/" + eachRestaurant?.info?.id} >
                        <RestaurantCard 
