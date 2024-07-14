@@ -6,10 +6,10 @@ import { useParams } from "react-router-dom";
 
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
+
 const RestaurantMenu = () =>
     {
-
-      const {resId} = useParams();
+   const {resId} = useParams();
 
       const {resInfo  , card ,everyItem }= useRestaurantMenu(resId);
 
@@ -26,8 +26,7 @@ const RestaurantMenu = () =>
      
       
           return( <div className="menu">
-
-                   <div className="res-name"> {resInfo.name}</div>
+                <div className="res-name"> {resInfo.name}</div>
                   { (tab !== undefined) ? <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> : " "}
               
                 <hr  className="line out-card" />
@@ -38,7 +37,6 @@ const RestaurantMenu = () =>
                        
                       <h3 className="cuisine">
                        {(cuisines !== undefined) ? <a href="">{resInfo.cuisines.join(" ,")} </a> : " "}
-                         {/* <a href="">{resInfo.cuisines.join(" ,")} </a> */}
                       </h3>
                     
                      <div className="area">Outlet <span className="res-area">{resInfo.areaName}</span></div>
@@ -59,6 +57,9 @@ const RestaurantMenu = () =>
                     return(
                       <RecommendedInMenu menuItem = {item?.card?.card?.itemCards}  itemTitle = {item?.card?.card?.title}/>
                     )
+                    
+                     
+                    
                   })
                 } 
                

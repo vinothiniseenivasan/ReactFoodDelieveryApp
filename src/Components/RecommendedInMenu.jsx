@@ -1,86 +1,88 @@
-import { useState } from 'react'
-import '../Css/RecommendedInMenu.css'
+import { Children, useState } from 'react'
+import '../Css/RecommendedInMenu.css';
+import ToggleButton from './ToggledButton';
+import FilterVeg from './FilterVeg';
+import MenuDisplay from './MenuDisplay';
 
 
 const RecommendedInMenu = ({menuItem , itemTitle}) =>
     {
- 
-       const [imgDisplay ,setImgDisplay] = useState([]);
 
-       const handleImageError = (index) => {
-        setImgDisplay((prev) => {
-            const newImgDisplay = [...prev];
-            newImgDisplay[index] = false;
-            return newImgDisplay;
-        });
-    };
-       if(menuItem !== undefined ){
-        return(
-            <div className="card-box">
+      
+        const[btnClicked ,setBtnClicked] = useState(false);
+       
+         const [isToggled, setIsToggled] = useState(false);
+      
+       
+       function handleToggle(isToggle)
+      {
+         setIsToggled(isToggle);
+         setBtnClicked(true);
+      }
 
-                <div className="Recommended">
-                    {itemTitle}  ({menuItem.length})
-                </div>
+      function checkVeg(item ,eachItem ,index)
+      {
+        if(item === "VEG" && isToggled === true)
+        {
+            console.log(item)
+            return( <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} index={index}  /> )
+        }
+        else if(item === "NONVEG"&&  isToggled === false){
+            console.log(item)
+            return( <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} index={index} /> )   
+        }
 
-                {
-                    Array.isArray(menuItem) && menuItem.map((eachItem ,index)=>
-                    {
-                        const image = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${eachItem?.card?.info?.imageId}`
-                        
-                            // { console.log("image" ,image) }
-                        const price = (eachItem?.card?.info?.price/100);
-
-                       return( <div>
-                             <div key={index} className="item-details">
-
-                                      <div className="name-price">
-                                            <div className='item-name'>
-                                            {eachItem?.card?.info?.name}
-                                            </div>
-                                            <div className='item-price'>
-
-                                            ₹ {Number.isNaN(price) ?  "500" : price }
-                                           </div>
-                                          
-                                       </div>
-                                      {image &&   <div className='image-box'>
-                                             < img  className="item-image"
-                                                   src={image}
-                                                    alt=""
-                                                    onError={(e) => {
-                                                        // console.log("error")
-                                                        e.target.style.display = 'none';
-                                                       handleImageError(index);
-                                                       
-                                                        // e.target.parentElement.style.display = 'none'
-                                                        // {console.log("imgDisplay" , imgDisplay)}
-                                                      }} 
-                                             />
-                                             
-                                           
-                                              <div className={imgDisplay[index] === false ? "false-add" : "add"}>
-                                                    Add
-                                              </div>
-                                          </div> } 
-                                     
-                                       
-                                      
-                               </div>
-                               <hr className='line-menu'></hr>
-                           </div>   )
-
-                    })
-                }
-              
-             
-            </div>
-        )
-       }
-              
-               
-
+      }
             
-        // return ({})
+               if(menuItem !== undefined )
+               {
+                   
+                   return(
+                       <div className="card-box">
+                            <ToggleButton  handleToggle={handleToggle}    />
+                            <div className="Recommended">
+                               {itemTitle}  ({menuItem.length})
+                            </div>
+                          
+                            {  Array.isArray(menuItem) && menuItem.map((eachItem ,index)=>
+                                       {
+                                        // console.log("inside Fillter " ,eachItem?.card?.info?.itemAttribute?.vegClassifier)
+                                        // console.log("inside Fillter " , btnClicked);
+                                        return  (!btnClicked) ? 
+                                           (
+                                                <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} index={index} /> 
+                                       
+                                            ) : (checkVeg(eachItem?.card?.info?.itemAttribute?.vegClassifier ,eachItem ,index)) 
+
+
+                                       })
+                                   
+                                   }
+                         </div>
+                   )
+               
+           
+                    
+               }
+           
+             
+               
+                     
+                 
+       // else if(btnClicked && eachItem?.card?.info?.itemAttribute?.vegClassifier === "VEG" && isToggled === true)
+                                        // {
+                                        //     <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} btnClicked={btnClicked} isToggled={isToggled} /> 
+
+                                        // } 
+                                        // else if(btnClicked && eachItem?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" && isToggled === false)
+                                        // {
+                                        //     <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} btnClicked={btnClicked} isToggled={isToggled} /> 
+                                        // }
+
+                                           
+                                        
+                                       
+   
        
     }
 

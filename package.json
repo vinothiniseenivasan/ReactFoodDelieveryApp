@@ -4,7 +4,8 @@
   "description": "\"FoodDelievery App\"",
   "scripts": {
     "test": "hi",
-    "start": "parcel index.html --port 3000"
+    "start": "parcel index.html",
+     "clean": "parcel clean"
   },
   "author": "vinothini",
   "license": "ISC",
