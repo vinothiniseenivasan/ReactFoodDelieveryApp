@@ -1,7 +1,7 @@
 import { Children, useState } from 'react'
 import '../Css/RecommendedInMenu.css';
 import ToggleButton from './ToggledButton';
-import FilterVeg from './FilterVeg';
+
 import MenuDisplay from './MenuDisplay';
 
 
@@ -65,24 +65,6 @@ const RecommendedInMenu = ({menuItem , itemTitle}) =>
                     
                }
            
-             
-               
-                     
-                 
-       // else if(btnClicked && eachItem?.card?.info?.itemAttribute?.vegClassifier === "VEG" && isToggled === true)
-                                        // {
-                                        //     <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} btnClicked={btnClicked} isToggled={isToggled} /> 
-
-                                        // } 
-                                        // else if(btnClicked && eachItem?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" && isToggled === false)
-                                        // {
-                                        //     <MenuDisplay  eachItem={eachItem} itemTitle ={itemTitle} btnClicked={btnClicked} isToggled={isToggled} /> 
-                                        // }
-
-                                           
-                                        
-                                       
-   
        
     }
 

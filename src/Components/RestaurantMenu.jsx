@@ -32,14 +32,20 @@ const RestaurantMenu = () =>
                 <hr  className="line out-card" />
                 
                  <div className="menu-card">
-                      <p className="rating">{resInfo.avgRating} ({resInfo.totalRatingsString}) {"   "}  
-                        {resInfo.costForTwoMessage}</p>
+                      <p className="rating flex text-center">
+                        <p>
+                          <img 
+                          className="w-[13px] h-[12px] mt-[0.44rem] mr-[5px]"
+                          src="https://c8.alamy.com/comp/2DEYG8E/premium-badge-icon-vector-for-any-purposes-web-internet-star-symbol-in-green-circle-isolated-on-white-background-icon-of-a-set-2DEYG8E.jpg" alt="star" />
+                        </p>
+                        {resInfo.avgRating} ({resInfo.totalRatingsString}) {"   "}  
+                         .  {resInfo.costForTwoMessage}</p>
                        
-                      <h3 className="cuisine">
+                      <h3 className="cuisine underline mt-[10px]">
                        {(cuisines !== undefined) ? <a href="">{resInfo.cuisines.join(" ,")} </a> : " "}
                       </h3>
                     
-                     <div className="area">Outlet <span className="res-area">{resInfo.areaName}</span></div>
+                     <div className="area mt-[5px]">Outlet <span className="res-area">{resInfo.areaName}</span></div>
                      {resInfo.sla !== undefined ? <div className="del-time"> {resInfo.sla.minDeliveryTime} -<span>{" "}{resInfo.sla.maxDeliveryTime} mins</span></div> : " "}
                      
                      
@@ -57,9 +63,6 @@ const RestaurantMenu = () =>
                     return(
                       <RecommendedInMenu menuItem = {item?.card?.card?.itemCards}  itemTitle = {item?.card?.card?.title}/>
                     )
-                    
-                     
-                    
                   })
                 } 
                

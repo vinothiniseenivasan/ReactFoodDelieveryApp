@@ -9,6 +9,10 @@ import { IMG_CDN_URL } from "../Utils/constant";
 const RestaurantCard = ({ res}) => {
     const {  name, cuisines, avgRating ,costForTwo} = res;
     // console.log("cuisines" ,cuisines)
+    console.log(" res.aggregatedDiscountInfoV3.subHeader" ,  res?.aggregatedDiscountInfoV3?.subHeader)
+    
+
+    console.log("eachRes" ,res)
     
     if(cuisines.length > 5)
     {
@@ -20,12 +24,11 @@ const RestaurantCard = ({ res}) => {
     return (
         <div className="border border-solid shadow-lg  w-[350px] h-[400px] rounded-md bg-slate-100 mt-10 mx-2 
         sm: border-slate-400 ">
-            <div className="transform transition duration-300 ease-in-out  hover:scale-110  flex justify-center items-center" >
+            <div className=" relative  transform transition duration-300 ease-in-out  hover:scale-110  flex justify-center items-center" >
                 <img
-                //  src={img.img}
-                src={imageCloud}
-               
-                    className="mt-5 mx-6 h-[200px] w-[300px] rounded-md "
+
+                    src={imageCloud}
+                    className= " mt-5 mx-6 h-[200px] w-[300px] rounded-md "
                     alt={name}
                 />
             </div>

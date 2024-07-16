@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterVeg from './FilterVeg';
+
 
 const ToggleButton = ({handleToggle} ) => {
   const [isToggled, setIsToggled] = useState(true);

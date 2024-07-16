@@ -9,6 +9,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import useBodyFetch from "../Utils/useBodyFetch";
+import HigherOrder from "./HigherOrder";
 
 
 const Body = ({ img }) => {
@@ -21,7 +22,8 @@ const Body = ({ img }) => {
 
   const [deliveryTime ,setDeliveryTime] =useState(2000);
 
- 
+//  higher Order Compnent
+const RestaurantWithOffer = HigherOrder(RestaurantCard);
    
   // function to filter res rate >= 4.0
   function filterRates(filtercards) {
@@ -192,18 +194,29 @@ const Body = ({ img }) => {
 
         {/* {console.log("filtercards" , filtercards)} */}
         {filteredRestaurants.map((eachRestaurant, index) => {
-          // {console.log("eachRestaurant" ,eachRestaurant)}
-        //  console.log("eachRestaurant" ,eachRestaurant)
+          //  {console.log("eachRestaurant" ,eachRestaurant)}
+
+          if( eachRestaurant?.info?.aggregatedDiscountInfoV3?.header !== undefined && eachRestaurant?.info?.aggregatedDiscountInfoV3?.subHeader)
+          {
+            var offer =  eachRestaurant?.info?.aggregatedDiscountInfoV3?.header + " " +eachRestaurant?.info?.aggregatedDiscountInfoV3?.subHeader;
+        
+          }
+           
           return (
             <div>
-
-               
-              <Link    key={eachRestaurant?.info?.id}
-                   to={"/restaurants/" + eachRestaurant?.info?.id} >
-                       <RestaurantCard 
-                        
-                         res={eachRestaurant.info}
-                        />
+               { console.log("ares.aggregatedDiscountInfoV3.subHeader" ,eachRestaurant?.aggregatedDiscountInfoV3?.subHeader)}
+       {/* if restaurant is has subHeader add => 50% off like */}
+             <Link    key={eachRestaurant?.info?.id}
+             to={"/restaurants/" + eachRestaurant?.info?.id} >
+                  
+                  {offer !== undefined ? (
+              <RestaurantWithOffer offer={offer}   res={eachRestaurant?.info}/>
+            ) : (
+              <RestaurantCard res={eachRestaurant.info} />
+            )}
+                      
+                     
+                     
               </Link>
               
             </div>

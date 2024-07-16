@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "\"FoodDelievery App\"",
   "scripts": {
-    "test": "hi",
-    "start": "parcel index.html",
-     "clean": "parcel clean"
+   
+    "start": "parcel index.html" 
+    
   },
-  "author": "vinothini",
+   "author": "vinothini",
   "license": "ISC",
   "dependencies": {
     "@cloudinary/react": "^1.13.0",
@@ -23,6 +23,7 @@
     "reactdom": "^2.0.0"
   },
   "devDependencies": {
+
     "postcss": "^8.4.39",
     "process": "^0.11.10",
     "tailwindcss": "^3.4.4"
