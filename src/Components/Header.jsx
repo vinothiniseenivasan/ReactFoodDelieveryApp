@@ -1,8 +1,10 @@
 import { LOGO_URL } from "../Utils/constant";
 // import "../Css/Header.css"
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import { createCloudinaryLegacyURL } from "@cloudinary/url-gen/index";
+import UserContext from "../Utils/UserContext";
 
 
 
@@ -13,6 +15,10 @@ console.log("Header First")
    const [btn ,setBtn] = useState("Login");
     
    const onlineStatus = useOnlineStatus();
+
+
+   const dataFromContext  =  useContext(UserContext);
+   console.log("dataFromContext" ,dataFromContext);
 
   
  
@@ -47,7 +53,7 @@ console.log("Header First")
             <li className="m-4">
               <Link to ="/grocery"> Grocery </Link>
             </li>
-            <li className="m-4">Cart</li>
+            <li className="m-4">{dataFromContext.loginUserInformation}</li>
             <button className="m-4"
                     onClick={()=>
                       {

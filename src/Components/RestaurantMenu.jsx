@@ -61,13 +61,14 @@ const RestaurantMenu = () =>
                 
                  <div className="menu-card">
                       <p className="rating flex text-center">
-                        <p>
-                          <img 
-                          className="w-[13px] h-[12px] mt-[0.44rem] mr-[5px]"
-                          src="https://c8.alamy.com/comp/2DEYG8E/premium-badge-icon-vector-for-any-purposes-web-internet-star-symbol-in-green-circle-isolated-on-white-background-icon-of-a-set-2DEYG8E.jpg" alt="star" />
-                        </p>
-                        {resInfo.avgRating} ({resInfo.totalRatingsString}) {"   "}  
-                         .  {resInfo.costForTwoMessage}</p>
+                             <span>
+                                <img 
+                                className="w-[13px] h-[12px] mt-[0.44rem] mr-[5px]"
+                                src="https://c8.alamy.com/comp/2DEYG8E/premium-badge-icon-vector-for-any-purposes-web-internet-star-symbol-in-green-circle-isolated-on-white-background-icon-of-a-set-2DEYG8E.jpg" alt="star" />
+                             </span>
+                               {resInfo.avgRating} ({resInfo.totalRatingsString}) {"   "}  
+                                .  {resInfo.costForTwoMessage}
+                         </p>
                        
                       <h3 className="cuisine underline mt-[10px]">
                        {(cuisines !== undefined) ? <a href="">{resInfo.cuisines.join(" ,")} </a> : " "}
@@ -86,14 +87,14 @@ const RestaurantMenu = () =>
               </div>
               
                  {
-                  everyItem.map((item)=>
+                  everyItem.map((item , index)=>
                   {
                    
                    return(
-                    <RecommendedInMenu menuItem = {item?.card?.card?.itemCards} 
+                    <RecommendedInMenu key = {index}
+                     menuItem = {item?.card?.card?.itemCards} 
                      click={   item?.card?.card?.title === eachtitle  }
-                      // && true }
-                    // click={false}
+                     
                     itemTitle = {item?.card?.card?.title} handleClick={handleClick} 
                     setEachTitle={setEachTitle}/>
                     )

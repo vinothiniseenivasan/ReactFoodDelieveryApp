@@ -1,9 +1,15 @@
 import User from "./User";
 import "../Css/about.css";
 import UserClass from "./UserClass";
-import { Component, useEffect } from "react";
+import { Component, useCallback, useContext, useEffect } from "react";
+import UserContext from "../Utils/UserContext";
 
 const About =() =>{
+
+
+  const dataFromContext = useContext(UserContext);
+
+
 
   useEffect(() =>{
    const timer = setInterval(()=>{
@@ -21,6 +27,7 @@ const About =() =>{
     <div>
       <h1>About page</h1>
       <UserClass name="first class " location="india" />
+      <h1> {dataFromContext.loginUserInformation}</h1>
     </div>
   );
 
