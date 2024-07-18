@@ -70,10 +70,12 @@ const MenuDisplay = ({ eachItem, itemTitle, index }) => {
             >
               Add
             </div>
+          
           </div>
         )}
+
       </div>
-      <hr className="line-menu"></hr>
+      <hr className="bg-gray-500 h-1 mt-11 opacity-40"></hr>
     </div>
   );
 };

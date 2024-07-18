@@ -7,7 +7,6 @@ const ToggleButton = ({handleToggle} ) => {
   const toggle = () => {
     setIsToggled(!isToggled);
     handleToggle(!isToggled);
-    
   };
 
   return (

@@ -7,6 +7,8 @@ import { IMG_CDN_URL } from "../Utils/constant";
 
 
 const RestaurantCard = ({ res}) => {
+
+ 
     const {  name, cuisines, avgRating ,costForTwo} = res;
     // console.log("cuisines" ,cuisines)
     console.log(" res.aggregatedDiscountInfoV3.subHeader" ,  res?.aggregatedDiscountInfoV3?.subHeader)
@@ -18,6 +20,7 @@ const RestaurantCard = ({ res}) => {
     {
       var cuisineShort = cuisines.slice(0,5);
     }
+   
 
      let imageCloud =IMG_CDN_URL+res.cloudinaryImageId
    

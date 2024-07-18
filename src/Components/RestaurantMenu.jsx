@@ -1,8 +1,10 @@
 
 import Shimmer from "./Shimmer";
-import '../Css/Restaurantmenu.css'
+import '../Css/Restaurantmenu.css';
+import {  useState } from "react";
 import RecommendedInMenu from "./RecommendedInMenu";
 import { useParams } from "react-router-dom";
+
 
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
@@ -10,6 +12,33 @@ import useRestaurantMenu from "../Utils/useRestaurantMenu";
 const RestaurantMenu = () =>
     {
    const {resId} = useParams();
+ 
+   const [eachtitle ,setEachTitle ] = useState("");
+   const [count ,setCount]  = useState(false);
+   const [dis ,setDis]  = useState(false);
+
+
+   function handleClick(itemTitle )
+   {
+     console.log(dis ,dis)
+    if(dis !== true )
+    {
+      setEachTitle(itemTitle);
+      setDis(true);
+    }
+    else
+    { 
+      setEachTitle(" ");
+      setDis(false);
+
+    }
+  
+  
+  //  setCount(true);
+  //  console.log("count" ,count)
+ 
+   }
+      
 
       const {resInfo  , card ,everyItem }= useRestaurantMenu(resId);
 
@@ -18,15 +47,14 @@ const RestaurantMenu = () =>
             return  (<Shimmer />)    
 
         } 
-        console.log("card" , card)
+       
            const tab = card?.card?.card?.tabs;
-          console.log("tab" ,tab)
-        
+       
            const cuisines = resInfo.cuisines;
      
       
           return( <div className="menu">
-                <div className="res-name"> {resInfo.name}</div>
+                <div className="res-name mt-5"> {resInfo.name}</div>
                   { (tab !== undefined) ? <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> : " "}
               
                 <hr  className="line out-card" />
@@ -60,8 +88,14 @@ const RestaurantMenu = () =>
                  {
                   everyItem.map((item)=>
                   {
-                    return(
-                      <RecommendedInMenu menuItem = {item?.card?.card?.itemCards}  itemTitle = {item?.card?.card?.title}/>
+                   
+                   return(
+                    <RecommendedInMenu menuItem = {item?.card?.card?.itemCards} 
+                     click={   item?.card?.card?.title === eachtitle  }
+                      // && true }
+                    // click={false}
+                    itemTitle = {item?.card?.card?.title} handleClick={handleClick} 
+                    setEachTitle={setEachTitle}/>
                     )
                   })
                 } 
