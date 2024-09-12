@@ -1,15 +1,16 @@
 
 import RestaurantCard from "./RestaurantCard";
-// import "../Css/body.css";
-import { Children, useState } from "react";
+
+import { Children, useContext, useState } from "react";
 import { useEffect } from "react";
-// import ApiForImage from "./ApiForImage";
+
 import Shimmer from "./Shimmer";
-// import RestaurantMenu from "./RestaurantMenu";
+
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import useBodyFetch from "../Utils/useBodyFetch";
 import HigherOrder from "./HigherOrder";
+import UserContext from "../Utils/UserContext";
 
 
 const Body = ({ img }) => {
@@ -18,14 +19,24 @@ const Body = ({ img }) => {
   
   const [bool ,setBool] = useState(false);
 
+  // const [userName ,setUserName ] = useState(" ");
+
   const {filtercards, filteredRestaurants,setFiltercards,setFilteredRestaurants} = useBodyFetch();
 
   const [deliveryTime ,setDeliveryTime] =useState(2000);
 
-//  higher Order Compnent
+  const {userName ,setUserName} = useContext(UserContext);
+  console.log("contextData" ,userName)
+
+
+
+  //  higher Order Compnent
 const RestaurantWithOffer = HigherOrder(RestaurantCard);
    
-  // function to filter res rate >= 4.0
+  
+
+
+// function to filter res rate >= 4.0
   function filterRates(filtercards) {
     const newCard = filtercards.filter((eachCard) => {
       return eachCard.info.avgRating >= 4.3;
@@ -123,7 +134,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
   ) : (
     <div className="">
        <div className="ml-[1.8rem] font-black lett font-sarif  mt-[20px]">
-       Restaurants with online food delivery in Bangalore
+           Restaurants with online food delivery in Bangalore
       </div>
 
 
@@ -138,7 +149,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
                             setInput(e.target.value)
                           }}
                   />
-                 <button className=" h-[25px] w-[75px] font-semibold  border border-solid border-gray-600  rounded-xl text-white cursor-pointer  bg-sky-500 hover:bg-sky-700 " 
+                 <button className="h-[25px] w-[75px] font-semibold  border border-solid border-gray-600  rounded-xl text-white cursor-pointer  bg-sky-500 hover:bg-sky-700 " 
                       onClick={   ()=>{ filterInput(input)} }>
                             search
                   </button>
@@ -183,6 +194,18 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
           Less than Rs.300
          </div>
 
+         <div >
+          <input type="text" 
+                 className="mr-10  border border-solid border-gray-700 p-2"
+                 value ={userName}
+                 onChange={ (e) => {
+                 setUserName(e.target.value);
+                
+                } }
+               
+          />
+          
+       </div>
        </div>
        
 
@@ -203,20 +226,19 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
           }
            
           return (
-            <div>
-               { console.log("ares.aggregatedDiscountInfoV3.subHeader" ,eachRestaurant?.aggregatedDiscountInfoV3?.subHeader)}
+            <div key={eachRestaurant?.info?.id}>
+               {/* { console.log("ares.aggregatedDiscountInfoV3.subHeader" ,eachRestaurant?.aggregatedDiscountInfoV3?.subHeader)} */}
        {/* if restaurant is has subHeader add => 50% off like */}
              <Link    key={eachRestaurant?.info?.id}
-             to={"/restaurants/" + eachRestaurant?.info?.id} >
+                      to={"/restaurants/" + eachRestaurant?.info?.id} >
                   
-                  {offer !== undefined ? (
-              <RestaurantWithOffer offer={offer}   res={eachRestaurant?.info}/>
-            ) : (
-              <RestaurantCard res={eachRestaurant.info} />
-            )}
-                      
-                     
-                     
+                      {  offer !== undefined ? (
+                        <RestaurantWithOffer offer={offer}   
+                                             res={eachRestaurant?.info}/>
+                        ) : (
+                        <RestaurantCard res={eachRestaurant?.info} />
+                        ) }
+                  
               </Link>
               
             </div>

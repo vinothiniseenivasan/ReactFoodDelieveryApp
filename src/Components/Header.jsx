@@ -53,6 +53,9 @@ console.log("Header First")
             <li className="m-4">
               <Link to ="/grocery"> Grocery </Link>
             </li>
+            <li className="m-4">
+              <Link to ="/cart"> Cart </Link>
+            </li>
             <li className="m-4">{dataFromContext.loginUserInformation}</li>
             <button className="m-4"
                     onClick={()=>

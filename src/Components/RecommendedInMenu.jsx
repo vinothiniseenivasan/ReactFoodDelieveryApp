@@ -10,9 +10,7 @@ const RecommendedInMenu = ({menuItem , itemTitle ,handleClick ,click ,setEachTit
        
         const[btnClicked ,setBtnClicked] = useState(false);
 
-        
-      
-         const [isToggled, setIsToggled] = useState(false);
+        const [isToggled, setIsToggled] = useState(false);
        
        function handleToggle(isToggle)
       {
@@ -43,14 +41,15 @@ const RecommendedInMenu = ({menuItem , itemTitle ,handleClick ,click ,setEachTit
                             <ToggleButton  handleToggle={handleToggle}    />
                             <div
                               onClick = {() => handleClick(itemTitle)}
-                             className=" cursor-pointer mt-2 Recommended  p-2 flex  justify-between mb-7 border border-solid rounded-xl shadow-xl border-white">
-                               {itemTitle}  ({menuItem.length}) 
-                               <span className='mr-3'> {<>&#9660;</>} </span>
+                              className=" cursor-pointer mt-2 Recommended  p-2 flex  justify-between mb-7 border border-solid rounded-xl shadow-xl border-white">
+                              {itemTitle}  ({menuItem.length}) 
+                              <span className='mr-3'> {<>&#9660;</>} </span>
                             </div>
                           
                             { (click === true) &&    Array.isArray(menuItem) && menuItem.map((eachItem ,index)=>
                                        {
-                                        {console.log("inside menu" ,itemTitle)}
+                                        {console.log("inside menu" ,eachItem?.card?.info?.name)}
+                                        // eachItem?.card?.info?.name
                                        
                                         return(  (!btnClicked) ? 
                                                <MenuDisplay key ={eachItem?.card?.info?.name}  eachItem={eachItem} itemTitle ={itemTitle} index={index} /> 
@@ -62,7 +61,7 @@ const RecommendedInMenu = ({menuItem , itemTitle ,handleClick ,click ,setEachTit
                                    
                             } 
                          </div>
-                   )
+                     )
                
            
                     

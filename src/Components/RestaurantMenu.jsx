@@ -38,8 +38,11 @@ const RestaurantMenu = () =>
   //  console.log("count" ,count)
  
    }
-      
-
+       
+    //  useRestaurantMenu is a custom hook
+    //  RestaurantMenu doesn't need to bother how to this data is comming
+    //  its just fetch information from  useRestaurantMenu  custom hook 
+    //  display content
       const {resInfo  , card ,everyItem }= useRestaurantMenu(resId);
 
       if (resInfo === null )
@@ -91,12 +94,14 @@ const RestaurantMenu = () =>
                   {
                    
                    return(
-                    <RecommendedInMenu key = {index}
+                    <RecommendedInMenu 
+                     key = {index}
                      menuItem = {item?.card?.card?.itemCards} 
                      click={   item?.card?.card?.title === eachtitle  }
                      
-                    itemTitle = {item?.card?.card?.title} handleClick={handleClick} 
-                    setEachTitle={setEachTitle}/>
+                    itemTitle = {item?.card?.card?.title}
+                    handleClick={handleClick} 
+                    setEachTitle={setEachTitle} />
                     )
                   })
                 } 
