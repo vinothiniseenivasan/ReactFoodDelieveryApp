@@ -55,11 +55,11 @@ const RestaurantCard = ({ res}) => {
           
          <div className="text-center mx-5 per-container res-cuisine flex  mt-3 align ">
            <div className="offer-container relative">
-             <img
-               src="https:www.pngitem.com/pimgs/m/2-29820_offer-logo-blank-png-transparent-png.png"
-               alt="Offer Image"
-               className="h-[30px] w-[30px]"
-             />
+                 <img
+                   src="https:www.pngitem.com/pimgs/m/2-29820_offer-logo-blank-png-transparent-png.png"
+                   alt="Offer Image"
+                   className="h-[30px] w-[30px]"
+                 />
              <div className="offer-text absolute left-2 bottom-1 right-2"> %</div>
            </div>
   

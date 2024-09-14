@@ -39,7 +39,7 @@ const RestaurantMenu = () =>
  
    }
        
-    //  useRestaurantMenu is a custom hook
+    //  useRestaurantMenu is a custom hook, create in utils
     //  RestaurantMenu doesn't need to bother how to this data is comming
     //  its just fetch information from  useRestaurantMenu  custom hook 
     //  display content
@@ -94,6 +94,8 @@ const RestaurantMenu = () =>
                   {
                    
                    return(
+                    //  RecommendedInMenu  is controlled componentn
+                    //  because click atribute is depend upon parent component RestaurantMenu
                     <RecommendedInMenu 
                      key = {index}
                      menuItem = {item?.card?.card?.itemCards} 

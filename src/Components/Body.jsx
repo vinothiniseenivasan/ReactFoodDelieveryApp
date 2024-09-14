@@ -126,10 +126,10 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
   }
 
 
-  
+  console.log("filteredRestaurants" ,filteredRestaurants)
 
   // (bool === true) ? (setFiltercards(filterResName) ) : (filtercards)
-  return filteredRestaurants.length === 0 ? (
+  return filteredRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="">

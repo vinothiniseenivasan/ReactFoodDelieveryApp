@@ -7,11 +7,13 @@ import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Contact from "./Components/Contact";
 import About from "./Components/About";
 import Error from "./Components/Error";
-import Cart from "./Components/Cart";
 import RestaurantMenu from "./Components/RestaurantMenu";
-// import Grocery from "./Components/Grocery";
+
+import {Provider} from 'react-redux';
+import appStore from "./Utils/appStore";
+ import Cart from "./Components/Cart";
 import { lazy } from "react";
-// import Shimmer from "./Components/Shimmer";
+
 import ".././style.css";
 import UserContext from "./Utils/UserContext";
 
@@ -29,12 +31,15 @@ const AppLayout = () => {
   }, []);
 
   return (
+   <Provider  store={appStore}>
     <UserContext.Provider value={{ loginUserInformation: userName  , userName ,setUserName}}>
       <div className="app">
                <Header />
                <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
+    
   );
 };
 
@@ -57,10 +62,6 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
         path: "/contact",
         element: <Contact />,
       },
@@ -68,6 +69,10 @@ const appRouter = createBrowserRouter([
         // /:resId => dynamic its differ for reataurant to restaurant
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",

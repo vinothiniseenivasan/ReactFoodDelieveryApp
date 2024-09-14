@@ -48,7 +48,7 @@ const RecommendedInMenu = ({menuItem , itemTitle ,handleClick ,click ,setEachTit
                           
                             { (click === true) &&    Array.isArray(menuItem) && menuItem.map((eachItem ,index)=>
                                        {
-                                        {console.log("inside menu" ,eachItem?.card?.info?.name)}
+                                        // {console.log("inside menu" ,eachItem?.card?.info?.name)}
                                         // eachItem?.card?.info?.name
                                        
                                         return(  (!btnClicked) ? 

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 
 const MenuDisplay = ({ eachItem, itemTitle, index }) => {
   const [imgDisplay, setImgDisplay] = useState([]);
@@ -26,6 +28,16 @@ const MenuDisplay = ({ eachItem, itemTitle, index }) => {
       arrow ? setShow(menuContent) : setShow(" ");
       setArrow(!arrow);
     }
+  }
+
+  // dispatch an actiom
+  const dispatch = useDispatch();
+
+  function addItemInCart(eachMenuItem)
+  {
+    dispatch(addItem(eachMenuItem));
+
+   
   }
 
   return (
@@ -66,6 +78,14 @@ const MenuDisplay = ({ eachItem, itemTitle, index }) => {
                 imgDisplay[index] === false
                   ? "rounded-xl w-[100px] px-4  border border-solid border-yellow-400 mr-[3rem] p-2 flex justify-center text-center cursor-pointer bg-yellow-50 text-green-700 font-bold "
                   : "add"
+              }
+            //  click this btn add to cart
+
+              onClick={
+                  () =>{
+                addItemInCart(eachItem?.card?.info?.name)
+                  }
+                 
               }
             >
               Add

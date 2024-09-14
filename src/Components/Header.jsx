@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import { createCloudinaryLegacyURL } from "@cloudinary/url-gen/index";
 import UserContext from "../Utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 
@@ -17,8 +18,15 @@ console.log("Header First")
    const onlineStatus = useOnlineStatus();
 
 
+
+
+  //   subscribing to our selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("cartItems" ,cartItems)
+
+
    const dataFromContext  =  useContext(UserContext);
-   console.log("dataFromContext" ,dataFromContext);
+  //  console.log("dataFromContext" ,dataFromContext);
 
   
  
@@ -54,7 +62,7 @@ console.log("Header First")
               <Link to ="/grocery"> Grocery </Link>
             </li>
             <li className="m-4">
-              <Link to ="/cart"> Cart </Link>
+              <Link to ="/cart"> Cart  -{ cartItems.length }  items</Link>
             </li>
             <li className="m-4">{dataFromContext.loginUserInformation}</li>
             <button className="m-4"
