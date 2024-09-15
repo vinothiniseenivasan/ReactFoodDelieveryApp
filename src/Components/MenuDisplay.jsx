@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+ import { useDispatch } from "react-redux";
 import { addItem } from "../Utils/cartSlice";
 
-const MenuDisplay = ({ eachItem, itemTitle, index }) => {
+
+const MenuDisplay = ({ eachItem, index }) => {
   const [imgDisplay, setImgDisplay] = useState([]);
 
   const [show, setShow] = useState("");
@@ -12,7 +13,7 @@ const MenuDisplay = ({ eachItem, itemTitle, index }) => {
 
   const price = eachItem?.card?.info?.price / 100;
   const menuContent = eachItem?.card?.info?.description;
-  //    console.log("menuContent" ,typeof(menuContent));
+     console.log("menuContent" ,eachItem);
 
   const handleImageError = (index) => {
     setImgDisplay((prev) => {
@@ -83,7 +84,7 @@ const MenuDisplay = ({ eachItem, itemTitle, index }) => {
 
               onClick={
                   () =>{
-                addItemInCart(eachItem?.card?.info?.name)
+                addItemInCart(eachItem)
                   }
                  
               }
