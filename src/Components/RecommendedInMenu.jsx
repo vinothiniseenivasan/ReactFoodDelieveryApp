@@ -52,7 +52,8 @@ const RecommendedInMenu = ({menuItem , itemTitle ,handleClick ,click ,setEachTit
                                         // eachItem?.card?.info?.name
                                        
                                         return(  (!btnClicked) ? 
-                                               <MenuDisplay key ={eachItem?.card?.info?.name}  eachItem={eachItem} itemTitle ={itemTitle} index={index} /> 
+                                               <MenuDisplay key ={eachItem?.card?.info?.name}  eachItem={eachItem}  index={index} /> 
+                                              //  itemTitle ={itemTitle}
                                        
                                                : (checkVeg(eachItem?.card?.info?.itemAttribute?.vegClassifier ,eachItem ,index))  )
 

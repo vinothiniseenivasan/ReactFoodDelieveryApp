@@ -27,3 +27,7 @@ Server side Routing
   - dispatch an action
   - selector
 
+
+
+  onClick = {handleItem}  ,  onClick = {()=>{handleItem(item)} } ,onClick = {handleItem(item)}  difference between these 3 functions
+
