@@ -14,7 +14,7 @@ import React from "react";
 
 export const Header = () => {
  
-console.log("Header First")
+// console.log("Header First")
 
    const [btn ,setBtn] = useState("Login");
     
@@ -25,7 +25,7 @@ console.log("Header First")
 
   //   subscribing to our selector
   const cartItems = useSelector((store) => store.cart.items);
-  console.log("cartItems" ,cartItems)
+  // console.log("cartItems" ,cartItems)
 
 
    const dataFromContext  =  useContext(UserContext);
@@ -73,9 +73,8 @@ console.log("Header First")
                       {
                        (btn === "Login") ? ( setBtn("Logout") ) : ( setBtn("Login") )
                       }
-                    }
-            >
-              {btn}
+                    } >
+                          {btn}
             </button>
           </ul>
         </div>
