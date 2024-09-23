@@ -14,7 +14,7 @@ const RestaurantCard = ({ res}) => {
     // console.log(" res.aggregatedDiscountInfoV3.subHeader" ,  res?.aggregatedDiscountInfoV3?.subHeader)
     
 
-     console.log("eachRes" ,res)
+    //  console.log("eachRes" ,res)
     
     if(cuisines.length > 5)
     {

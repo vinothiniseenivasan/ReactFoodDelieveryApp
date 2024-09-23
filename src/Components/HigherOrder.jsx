@@ -1,7 +1,7 @@
 const HigherOrder =   (RestauarntCard) => {
     return function ComponentEnhanced ({ offer, res })
     {
-        // console.log("inside ComponentEnhanced");
+        // console.log("inside ComponentEnhanced" , offer);
         return(
             <div className="relative">
                   <div className="absolute text-xl ml-[5rem] z-10 font-extrabold px-1   mt-[11rem] flex items-center justify-center  bg-opacity-50 text-white p-2"> 
