@@ -22,6 +22,6 @@ test("rendering input component in conatct page" , ()=>{
    
 
     const input = screen.getByPlaceholderText("name");
-    console.log(input)
+    // console.log(input)
     expect(input).toBeInTheDocument();
 })

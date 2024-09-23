@@ -1,4 +1,5 @@
 import '../Css/Shimmer.css';
+import React from "react";
 
 
 const Shimmer = () =>
