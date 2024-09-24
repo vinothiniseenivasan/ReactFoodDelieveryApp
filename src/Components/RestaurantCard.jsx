@@ -25,8 +25,9 @@ const RestaurantCard = ({ res}) => {
      let imageCloud =IMG_CDN_URL+res.cloudinaryImageId
    
     return (
-        <div className="border border-solid shadow-lg  w-[350px] h-[400px] rounded-md bg-slate-100 mt-10 mx-2 
-        sm: border-slate-400 ">
+        <div data-testid = "resCard"  
+             className="border border-solid shadow-lg  w-[350px] h-[400px] rounded-md bg-slate-100 mt-10 mx-2 
+                        sm: border-slate-400 ">
             <div className=" relative  transform transition duration-300 ease-in-out  hover:scale-110  flex justify-center items-center" >
                 <img
 

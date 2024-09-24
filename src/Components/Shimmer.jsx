@@ -5,7 +5,7 @@ import React from "react";
 const Shimmer = () =>
     {
         return(
-           <div>
+           <div  data-testid = "resCard">
               Shimmer
            </div>
         )

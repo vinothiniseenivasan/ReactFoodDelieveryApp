@@ -143,7 +143,10 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
 
 
        <div className="mr-10">
-                 <input type="text" className="rounded-md h-[40px] w-[200px] p-1 mr-5 border border-solid border-gray-600  bg-gray-50 " value={input}
+                 <input type="text" 
+                 className="rounded-md h-[40px] w-[200px] p-1 mr-5 border border-solid border-gray-600  bg-gray-50 " 
+                 value={input}
+                 data-testid = "searchInput"
                          onChange={(e) => 
                           {
                             setInput(e.target.value)
