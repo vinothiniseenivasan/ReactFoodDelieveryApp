@@ -202,6 +202,11 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest', // For JavaScript and JSX
   },
-  testEnvironment: 'jsdom', // For rendering components
+  testEnvironment: 'jsdom',
+   // For rendering components
+
+   moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  }
 };
 

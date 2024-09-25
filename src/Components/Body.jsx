@@ -26,7 +26,7 @@ const Body = ({ img }) => {
   const [deliveryTime ,setDeliveryTime] =useState(2000);
 
   const {userName ,setUserName} = useContext(UserContext);
-  console.log("contextData" ,userName)
+  // console.log("contextData" ,userName)
 
 
 
@@ -126,7 +126,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
   }
 
 
-  console.log("filteredRestaurants" ,filteredRestaurants)
+  // console.log("filteredRestaurants" ,filteredRestaurants)
 
   // (bool === true) ? (setFiltercards(filterResName) ) : (filtercards)
   return filteredRestaurants?.length === 0 ? (
@@ -187,7 +187,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
           }>
           Rs.300-Rs-400
          </div>
-         <div className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer"
+         <button className="border border-solid border-slate-50 mr-6 p-[0.5rem] font-medium rounded-2xl hover:bg-slate-100 hover:border-black cursor-pointer"
          onClick ={
           () =>
           {
@@ -195,7 +195,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
           }
         }>
           Less than Rs.300
-         </div>
+         </button>
 
          <div >
           <input type="text" 

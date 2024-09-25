@@ -5,8 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest" ,
-    "watch-test" : "jest --watch"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "author": "vinothini",
   "license": "ISC",
@@ -30,6 +30,7 @@
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "parcel": "^2.12.0",
