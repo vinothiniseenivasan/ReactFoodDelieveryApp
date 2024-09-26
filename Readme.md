@@ -31,3 +31,13 @@ Server side Routing
 
   onClick = {handleItem}  ,  onClick = {()=>{handleItem(item)} } ,onClick = {handleItem(item)}  difference between these 3 functions
 
+.parcelrc
+// {
+//   "extends": "@parcel/config-default",
+//   "transformers": {
+//     "*.{js,mjs,jsx,cjs,ts,tsx}": [
+//       "@parcel/transformer-js",
+//       "@parcel/transformer-react-refresh-wrap"
+//     ]
+//   }
+// }

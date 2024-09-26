@@ -16,6 +16,7 @@ import { lazy } from "react";
 
 import ".././style.css";
 import UserContext from "./Utils/UserContext";
+import LoginPage from "./Components/LoginPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -73,6 +74,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/LoginPage",
+        element: <LoginPage />,
       },
       {
         path: "/grocery",

@@ -19,7 +19,7 @@ const useBodyFetch =() =>
         //  console.log("data api", apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         const apiInfo = apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-        console.log("apiInfo" ,apiResponse?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log("apiInfo" ,apiResponse?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
          
         setFiltercards(apiInfo);
         setFilteredRestaurants(apiInfo);
