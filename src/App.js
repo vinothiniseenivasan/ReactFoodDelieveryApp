@@ -25,6 +25,7 @@ const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
+
     const user = {
       nameInfo: "vinothini seeenivasan",
     };
@@ -34,7 +35,7 @@ const AppLayout = () => {
 
   return (
    <Provider  store={appStore}>
-    <UserContext.Provider value={{ loginUserInformation: userName  , userName ,setUserName}}>
+    <UserContext.Provider value={ { loginUserInformation: userName  , userName ,setUserName} }>
       <div className="app">
                <Header />
                <Outlet />

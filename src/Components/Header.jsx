@@ -29,7 +29,7 @@ export const Header = () => {
 
 
    const dataFromContext  =  useContext(UserContext);
-  //  console.log("dataFromContext" ,dataFromContext);
+    console.log("dataFromContext" ,dataFromContext);
 
   
  
@@ -61,14 +61,12 @@ export const Header = () => {
               <Link to="/contact">   Contact Us  </Link>
              
             </li>
-            {/* <li className="m-4">
-              <Link to ="/grocery"> Grocery </Link>
-            </li> */}
             <li className="m-4">
               <Link to ="/cart"> Cart  -{ cartItems.length }  items</Link>
             </li>
 
-            <li className="m-4">{dataFromContext.loginUserInformation}</li>
+            
+            <li className="m-4 text-amber-950">{dataFromContext.loginUserInformation}</li>
 
             <li className="">
                    <Link to ="/LoginPage">

@@ -34,8 +34,8 @@ const LoginPage  = () =>{
                </div>
                     <div className="mt-[1rem] ">
                          <span className="opacity-70a">
-                       or
-                       </span>
+                            or
+                         </span>
                         <Link to="/LoginToAccount">  
                                <span className=" underline cursor-pointer mt-4 ml-3 font-normal  text-red-500 text-xl " >
                                   Create an account

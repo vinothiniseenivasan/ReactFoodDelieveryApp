@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import LoginToAccount from "./LoginToAccount";
 import { Link } from "react-router-dom";
+import UserContext from "../Utils/UserContext";
 
 
 const LoginToAccount = () =>{
@@ -9,12 +10,20 @@ const LoginToAccount = () =>{
       const [name ,setName] = useState(" ");
       const [email ,setEmail] = useState(" ");
       const [login ,setLogin] = useState(false);
-    //   { console.log("emailAdd" , emailAdd)}
+      const {setUserName} = useContext(UserContext);
+      console.log("userNameCotext" ,setUserName)
+
+    //   { console.log("emailAdd" , emailAdd)};
 
 
    function handleLogin()
    {
       setLogin(true);
+      if(name !== " " && phoneNo !== " " && email !== " ") 
+      {
+        setUserName(name);
+      }
+    
    }
 
 
@@ -74,6 +83,9 @@ const LoginToAccount = () =>{
                   <input
                  onChange={(e)=>{
                   setName(e.target.value);
+                 
+                  
+                  
                  }}
                  className={
                      `bg-white-500   border  border-t-0
