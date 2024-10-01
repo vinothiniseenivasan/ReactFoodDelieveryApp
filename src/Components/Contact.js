@@ -43,9 +43,11 @@ const Contact = () =>{
                     <h1 className="font-bold opacity-70 mt-4">Email Address</h1>
                 <input 
                     type="text"
-                    className={`border mt-2 p-2 opacity-65 ${
+                    className={
+                      `border mt-2 p-2 opacity-65 ${
                         (isSubmit === true && emailAdd === " ") ? "border-red-500" : "border-black"
-                      }`}
+                      }`
+                    }
                     
                     // className="border border-black mt-2 p-2  opacity-65"  
                     placeholder="Enter your email address"

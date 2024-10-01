@@ -8,6 +8,7 @@ import Contact from "./Components/Contact";
 import About from "./Components/About";
 import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import LoginToAccount from "./Components/LoginToAccount";
 
 import {Provider} from 'react-redux';
 import appStore from "./Utils/appStore";
@@ -78,6 +79,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/LoginPage",
         element: <LoginPage />,
+      },
+      {
+        path: "/LoginToAccount",
+        element: <LoginToAccount />,
       },
       {
         path: "/grocery",

@@ -71,16 +71,16 @@ export const Header = () => {
             <li className="m-4">{dataFromContext.loginUserInformation}</li>
 
             <li className="">
-              <Link to ="/LoginPage">
-                  <button className="m-4"
-                               onClick={()=>
-                                 {
-                                  (btn === "Login") ? ( setBtn("Logout") ) : ( setBtn("Login") )
-                                 }
-                               } >
-                                     {btn}
-                       </button>
-                  </Link>
+                   <Link to ="/LoginPage">
+                       <button className="m-4"
+                                    onClick={()=>
+                                      {
+                                       (btn === "Login") ? ( setBtn("Logout") ) : ( setBtn("Login") )
+                                      }
+                                    } >
+                                          {btn}
+                        </button>
+                   </Link>
             </li>
             
           </ul>
