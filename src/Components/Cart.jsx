@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import MenuDisplay from "./MenuDisplay";
 import { CART_URL } from "../Utils/constant";
 import { clearCart } from "../Utils/cartSlice";
+import CartContext from "./CartContext";
+import { useState } from "react";
 
 const Cart = () =>{
 
@@ -11,6 +13,10 @@ const Cart = () =>{
 
       const itemsInCart = useSelector((store) => store.cart.items);
       console.log("itemsInCart" , itemsInCart);
+
+
+      //  for context value
+  const [cartAdd , setCartAdd] = useState(false);
       
 
 
@@ -23,6 +29,8 @@ const Cart = () =>{
           dispatch(clearCart());
       }
     return(
+   
+        <CartContext.Provider    value = {{cartAdd ,setCartAdd}} >
         <div className="text-center m-10 p-10 ">
             <div className="flex justify-around items-center ">
                 <div className="flex ">
@@ -84,6 +92,7 @@ const Cart = () =>{
       
            
         </div>
+     </CartContext.Provider> 
     )
 }
 

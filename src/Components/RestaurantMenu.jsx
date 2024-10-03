@@ -1,17 +1,24 @@
 
 import Shimmer from "./Shimmer";
 import '../Css/Restaurantmenu.css';
-import {  useState } from "react";
+import {  Children, createContext, useState } from "react";
 import RecommendedInMenu from "./RecommendedInMenu";
 import { useParams } from "react-router-dom";
 
 
+
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
+import { RESTAURANTMENU_API } from "../Utils/constant";
+import CartContext from "./CartContext";
 
 
 const RestaurantMenu = () =>
     {
    const {resId} = useParams();
+
+  
+//  for context value
+  const [cartAdd , setCartAdd] = useState(false);
  
    const [eachtitle ,setEachTitle ] = useState("");
    const [count ,setCount]  = useState(false);
@@ -56,9 +63,15 @@ const RestaurantMenu = () =>
            const cuisines = resInfo.cuisines;
      
       
-          return( <div className="menu">
-                <div className="res-name mt-5"> {resInfo.name}</div>
-                  { (tab !== undefined) ? <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> : " "}
+          return( 
+          <CartContext.Provider value={  {cartAdd ,setCartAdd} }>
+
+            console.log("CartContext" , CartContext)
+            <div className="menu relative">
+               
+                 <div className="res-name mt-5"> {resInfo.name}</div>
+
+                 { (tab !== undefined) ? <div  className="del-option">{tab[0]?.id}   {tab[1]?.id}</div> : " "}
               
                 <hr  className="line out-card" />
                 
@@ -87,28 +100,44 @@ const RestaurantMenu = () =>
                          {resInfo.sla.lastMileTravelString}   | - ₹ {resInfo.feeDetails.totalFee/100} Delivery fee will apply                  
                       </div> : " " }
                    
-              </div>
+                 </div>
               
                  {
                   everyItem.map((item , index)=>
                   {
                    
                    return(
-                    //  RecommendedInMenu  is controlled componentn
-                    //  because click atribute is depend upon parent component RestaurantMenu
-                    <RecommendedInMenu 
-                     key = {index}
-                     menuItem = {item?.card?.card?.itemCards} 
-                     click={   item?.card?.card?.title === eachtitle  }
-                     
-                    itemTitle = {item?.card?.card?.title}
-                    handleClick={handleClick} 
-                    setEachTitle={setEachTitle} />
+
+                   
+                                   //  RecommendedInMenu  is controlled componentn
+                                   //  because click atribute is depend upon parent component RestaurantMenu
+                                   <RecommendedInMenu 
+                                        key = {index}
+                                        menuItem = {item?.card?.card?.itemCards} 
+                                        click={   item?.card?.card?.title === eachtitle  }
+                                    
+                                        handleClick={handleClick} 
+                                        setEachTitle={setEachTitle} 
+                                        itemTitle = {item?.card?.card?.title}/>
+                    
                     )
                   })
                 } 
+
+
+                {/* cartItem Adding box */}
+                <div className={`mt-5 ml-[40rem] border-4 border-green-100  h-36 w-[20rem]  
+                               ${  (cartAdd  ===   true) ? "block" : "hidden"  }
+
+                   flex justify-center items-center text-2xl 
+                    ${  (cartAdd  ===   true) ? "animate-blink" : ""  }
+                    mr-32 bg-green-500 absolute top-0 text-white rounded-xl`}>
+                       Cart-item Added Sucessfully
+                   </div>
                
-              </div>  )
+              </div> 
+              </CartContext.Provider>
+               )
             
        
                   }

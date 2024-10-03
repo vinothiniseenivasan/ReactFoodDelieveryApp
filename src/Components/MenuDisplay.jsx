@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
  import { useDispatch } from "react-redux";
 import { addItem } from "../Utils/cartSlice";
+import CartContext from "./CartContext";
 
 
 const MenuDisplay = ({ eachItem, index }) => {
   const [imgDisplay, setImgDisplay] = useState([]);
 
   const [show, setShow] = useState("");
+  const [showCard , setShowCard] = useState(false);
   const [arrow, setArrow] = useState(true);
 
   const image = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${eachItem?.card?.info?.imageId}`;
@@ -14,6 +16,15 @@ const MenuDisplay = ({ eachItem, index }) => {
   const price = eachItem?.card?.info?.price / 100;
   const menuContent = eachItem?.card?.info?.description;
      console.log("menuContent" ,eachItem);
+     
+     
+     // dispatch an actiom
+     const dispatch = useDispatch();
+
+     // get context from RestaurantMenu
+     const { setCartAdd} = useContext(CartContext);
+     console.log("val of context" , setCartAdd )
+      //  const { setCartAdd } =useContext(CartContext);
 
   const handleImageError = (index) => {
     setImgDisplay((prev) => {
@@ -31,18 +42,23 @@ const MenuDisplay = ({ eachItem, index }) => {
     }
   }
 
-  // dispatch an actiom
-  const dispatch = useDispatch();
+ 
+ 
 
   function addItemInCart(eachMenuItem)
   {
     dispatch(addItem(eachMenuItem));
+    // setCartAdd(true);
 
-   
+
+    // setTimeout(()=>{
+    //   setCartAdd(false);
+    // },5000)
+
   }
 
   return (
-    <div key={index}>
+    <div key={index} className="relative">
       <div key={index} className="item-details">
         <div className="name-price">
           <div className="item-name">{eachItem?.card?.info?.name}</div>
@@ -76,7 +92,7 @@ const MenuDisplay = ({ eachItem, index }) => {
 
             <div
               className={
-                imgDisplay[index] === false
+                (imgDisplay[index] === false)
                   ? "rounded-xl w-[100px] px-4  border border-solid border-yellow-400 mr-[3rem] p-2 flex justify-center text-center cursor-pointer bg-yellow-50 text-green-700 font-bold "
                   : "add"
               }
@@ -84,12 +100,14 @@ const MenuDisplay = ({ eachItem, index }) => {
 
               onClick={
                   () =>{
-                addItemInCart(eachItem)
+                addItemInCart(eachItem);
+              
                   }
                  
               }
             >
-              Add
+                      Add
+              
             </div>
           
           </div>
