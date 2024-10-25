@@ -34,6 +34,9 @@ Order food from the comfort of your home. We showcase the latest restaurants ava
       npm install
 3. **Start the Application:**
        npm start
+## Live Demo
+
+Check out the live version of the app [here](https://react-food-delievery-app.vercel.app/).
 
 ## Screenshot
 
