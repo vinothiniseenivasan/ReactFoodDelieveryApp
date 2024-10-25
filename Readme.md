@@ -25,8 +25,6 @@ Order food from the comfort of your home. We showcase the latest restaurants ava
        Add your chosen dishes to the cart, making the ordering process seamless.
 - **Secure User Authentication**:
        Easily authenticate yourself using Firebase Auth for a personalized experience.
-- **Effortless Order Placement**:
-      Place your order with just a few clicks and get ready to savor your meal.
 
 ## How to Run Locally
 
