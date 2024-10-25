@@ -37,7 +37,8 @@ Order food from the comfort of your home. We showcase the latest restaurants ava
 
 ## Screenshot
 
-![Screenshot](https://github.com/your-username/your-repo-name/path-to-your-image.png)
+![Food Delivery App Screenshot](https://github.com/vinothiniseenivasan/ReactFoodDelieveryApp/blob/master/foodAPp.png?raw=true)
+
 
 
 
