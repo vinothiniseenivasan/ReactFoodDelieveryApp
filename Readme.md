@@ -14,19 +14,19 @@ Order food from the comfort of your home. We showcase the latest restaurants ava
 ## Working of the Project
 
 - **Dynamic Restaurant Fetching**:
--      Experience real-time access to restaurants in your city using the Swiggy API, bringing you live data at your fingertips.
+      Experience real-time access to restaurants in your city using the Swiggy API, bringing you live data at your fingertips.
 - **Informative Display**:
--      Effortlessly browse restaurants with detailed information, including area names, cuisine categories, and ratings.
+       Effortlessly browse restaurants with detailed information, including area names, cuisine categories, and ratings.
 - **Powerful Search Functionality**:
--      Quickly find restaurants by name to satisfy your cravings.
+       Quickly find restaurants by name to satisfy your cravings.
 - **Dish Exploration**:
--      Dive into a variety of dishes available at each restaurant, complete with details and pricing per quantity.
+      Dive into a variety of dishes available at each restaurant, complete with details and pricing per quantity.
 - **Convenient Cart Management**:
--      Add your chosen dishes to the cart, making the ordering process seamless.
+       Add your chosen dishes to the cart, making the ordering process seamless.
 - **Secure User Authentication**:
--      Easily authenticate yourself using Firebase Auth for a personalized experience.
+       Easily authenticate yourself using Firebase Auth for a personalized experience.
 - **Effortless Order Placement**:
--      Place your order with just a few clicks and get ready to savor your meal.
+      Place your order with just a few clicks and get ready to savor your meal.
 
 ## How to Run Locally
 
