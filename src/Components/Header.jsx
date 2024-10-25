@@ -29,7 +29,7 @@ export const Header = () => {
 
 
    const dataFromContext  =  useContext(UserContext);
-    console.log("dataFromContext" ,dataFromContext);
+    // console.log("dataFromContext" ,dataFromContext);
 
   
  

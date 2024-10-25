@@ -15,7 +15,7 @@ const MenuDisplay = ({ eachItem, index }) => {
 
   const price = eachItem?.card?.info?.price / 100;
   const menuContent = eachItem?.card?.info?.description;
-     console.log("menuContent" ,eachItem);
+    //  console.log("menuContent" ,eachItem);
      
      
      // dispatch an actiom
@@ -48,12 +48,12 @@ const MenuDisplay = ({ eachItem, index }) => {
   function addItemInCart(eachMenuItem)
   {
     dispatch(addItem(eachMenuItem));
-    // setCartAdd(true);
+     setCartAdd(true);
 
 
-    // setTimeout(()=>{
-    //   setCartAdd(false);
-    // },5000)
+    setTimeout(()=>{
+      setCartAdd(false);
+    },5000)
 
   }
 

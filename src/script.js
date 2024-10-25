@@ -13,7 +13,7 @@ import Body from "./Components/Body";
 const RestaurantCard = ( {res} ) => {
 
 
-   {console.log("props" ,res)}
+  //  {console.log("props" ,res)}
   return (  <div className="res-card">
   
  

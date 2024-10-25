@@ -20,7 +20,7 @@ class UserClass extends React.Component {
   
     const response = await fetch("https://api.github.com/users/vinothiniseenivasan");
     const json = await response.json();
-    console.log("json" ,json)
+    // console.log("json" ,json)
 
     this.setState ({
       userInfo :json
@@ -32,7 +32,7 @@ class UserClass extends React.Component {
   render()
    { 
   
-    console.log("resnder")
+    // console.log("resnder")
     const {login ,created_at} = this.state.userInfo;
   //  const {count,count2}  = this.state;
   

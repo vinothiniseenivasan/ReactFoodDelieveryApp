@@ -41,7 +41,7 @@ const RestaurantWithOffer = HigherOrder(RestaurantCard);
     const newCard = filtercards.filter((eachCard) => {
       return eachCard.info.avgRating >= 4.3;
     });
-    console.log("newCard", newCard);
+    // console.log("newCard", newCard);
 
     setFilteredRestaurants(newCard);
   }

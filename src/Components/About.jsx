@@ -13,7 +13,7 @@ const About =() =>{
 
   useEffect(() =>{
    const timer = setInterval(()=>{
-      console.log("setInterval Called")
+      // console.log("setInterval Called")
     } ,1000)
 
      return(()=>{

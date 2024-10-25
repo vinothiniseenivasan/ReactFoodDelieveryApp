@@ -27,7 +27,7 @@ test("should render each restaurant details page" ,  async () =>{
           <RestaurantMenu />
        </BrowserRouter>  
        )  )
-     console.log(RESTAURANT_MOCK_DATA.name)
+    //  console.log(RESTAURANT_MOCK_DATA.name)
 
       
 

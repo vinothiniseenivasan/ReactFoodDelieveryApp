@@ -12,7 +12,7 @@ const Cart = () =>{
     //  we have to subscribe our selector
 
       const itemsInCart = useSelector((store) => store.cart.items);
-      console.log("itemsInCart" , itemsInCart);
+    //   console.log("itemsInCart" , itemsInCart);
 
 
       //  for context value

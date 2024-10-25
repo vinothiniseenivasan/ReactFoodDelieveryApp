@@ -27,7 +27,7 @@ const RestaurantMenu = () =>
 
    function handleClick(itemTitle )
    {
-     console.log(dis ,dis)
+    //  console.log(dis ,dis)
     if(dis !== true )
     {
       setEachTitle(itemTitle);
@@ -66,7 +66,6 @@ const RestaurantMenu = () =>
           return( 
           <CartContext.Provider value={  {cartAdd ,setCartAdd} }>
 
-            console.log("CartContext" , CartContext)
             <div className="menu relative">
                
                  <div className="res-name mt-5"> {resInfo.name}</div>

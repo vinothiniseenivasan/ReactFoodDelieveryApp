@@ -32,7 +32,7 @@ const Contact = () =>{
        
 
             <h1 className="font-black  flex justify-center text-white tracking-wider text-3xl bg-teal-500 w-full p-2 ">
-                Contact as
+                Contact Us
             </h1>
              
               <div className="p-3">
@@ -90,7 +90,7 @@ const Contact = () =>{
                   className="text-red-500 opacity-80  cursor-pointer" 
                   
                    >
-                    { console.log("box" ,box)}
+                    {/* { console.log("box" ,box)} */}
                       {(boxInfo  === " ") ?  "Select a value!" : " "}
                   </div>
                     {/* conditionally render select a value box */}
