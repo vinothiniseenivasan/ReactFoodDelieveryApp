@@ -35,6 +35,11 @@ Order food from the comfort of your home. We showcase the latest restaurants ava
 3. **Start the Application:**
        npm start
 
+## Screenshot
+
+![Screenshot](https://github.com/your-username/your-repo-name/path-to-your-image.png)
+
+
 
 
 
